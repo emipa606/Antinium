@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--Raider Types-->
+  <PawnKindDef Name="Ant_AntiniumRaiderBasePawnkind" Abstract="True">
+    <race>Ant_AntiniumRace</race>
+    <defaultFactionType>Ant_HiveCivil</defaultFactionType>
+    <backstoryCategories>
+      <li>Ant_AntiniumBackstory</li>
+    </backstoryCategories>
+    <maxGenerationAge>60</maxGenerationAge>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <invNutrition>2.55</invNutrition>
+    <invFoodDef>Pemmican</invFoodDef>
+    <apparelTags>
+      <li>Neolithic</li>
+    </apparelTags>
+  </PawnKindDef>
+  <!-- light infantry - naked, unarmed melee -->
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind">
+    <!--  20-Resource: naked + unarmed -->
+    <defName>Ant_CannonFodder</defName>
+    <label>resource</label>
+    <combatPower>20</combatPower>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <invNutrition>0</invNutrition>
+    <apparelMoney>
+      <min>0</min>
+      <max>0</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>0</min>
+      <max>0</max>
+    </weaponMoney>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>50</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <techHediffsChance>0.15</techHediffsChance>
+  </PawnKindDef>
+  <!-- light melee-->
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind">
+    <!--  30-Combatant: naked + knife/club -->
+    <defName>Ant_Combatant</defName>
+    <label>combatant</label>
+    <combatPower>30</combatPower>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <invNutrition>0</invNutrition>
+    <itemQuality>Poor</itemQuality>
+    <gearHealthRange>
+      <min>0.2</min>
+      <max>1.1</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>30</min>
+      <max>80</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>41</min>
+      <max>120</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>NeolithicMeleeBasic</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>50</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0.15</techHediffsChance>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind">
+    <!--  50-Soldier: naked + ikwa/mace/gladius -->
+    <defName>Ant_Soldier</defName>
+    <label>soldier</label>
+    <combatPower>50</combatPower>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <invNutrition>0</invNutrition>
+    <itemQuality>Poor</itemQuality>
+    <gearHealthRange>
+      <min>0.2</min>
+      <max>1.1</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>50</min>
+      <max>100</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>150</min>
+      <max>250</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeDecent</li>
+      <li>NeolithicMeleeDecent</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>50</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0.15</techHediffsChance>
+  </PawnKindDef>
+  <!-- Mid tier - archer, hunter, trader -->
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind">
+    <!--  40-Bowman: tribalwear/(parka) + shortbow -->
+    <defName>Ant_Bowman</defName>
+    <label>bowman</label>
+    <combatPower>40</combatPower>
+    <itemQuality>Poor</itemQuality>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.8</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>80</min>
+      <max>180</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>45</min>
+      <max>120</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>NeolithicRangedBasic</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>50</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0.03</techHediffsChance>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind" Name="Ant_Archer">
+    <!-- 60-Archer: better tribalwear/(parka) + recurve bow -->
+    <defName>Ant_Archer</defName>
+    <label>hunter</label>
+    <combatPower>60</combatPower>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.8</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>200</min>
+      <max>300</max>
+    </apparelMoney>
+    <apparelRequired>
+      <li>Apparel_TribalA</li>
+    </apparelRequired>
+    <weaponMoney>
+      <min>100</min>
+      <max>100</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>NeolithicRangedDecent</li>
+    </weaponTags>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_Archer">
+    <defName>Ant_Trader</defName>
+    <label>trader</label>
+    <trader>true</trader>
+    <apparelRequired Inherit="False">
+      <li>Apparel_TribalHeaddress</li>
+    </apparelRequired>
+  </PawnKindDef>
+  <!-- High tier - berserker, heavy archer, chief melee, chief ranged -->
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind">
+    <!--  95- Special Archer: clothing, pila/recurve/greatbow, smokepop belt -->
+    <defName>Ant_SpecialArcher</defName>
+    <label>special archer</label>
+    <combatPower>95</combatPower>
+    <apparelMoney>
+      <min>200</min>
+      <max>550</max>
+    </apparelMoney>
+    <apparelRequired>
+      <li>Apparel_SmokepopBelt</li>
+    </apparelRequired>
+    <weaponMoney>
+      <min>190</min>
+      <max>300</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>NeolithicRangedHeavy</li>
+      <li>NeolithicRangedDecent</li>
+    </weaponTags>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_AntiniumRaiderBasePawnkind" Name="Ant_EliteBase" Abstract="True">
+    <combatPower>130</combatPower>
+    <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
+    <minGenerationAge>30</minGenerationAge>
+    <maxGenerationAge>999</maxGenerationAge>
+    <itemQuality>Normal</itemQuality>
+    <factionLeader>true</factionLeader>
+    <canBeSapper>true</canBeSapper>
+    <apparelMoney>
+      <min>450</min>
+      <max>750</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>500</min>
+      <max>1000</max>
+    </weaponMoney>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_EliteBase">
+    <!-- 105-Warrior: clothing, longsword/spear, shield belt -->
+    <defName>Ant_Warrior</defName>
+    <label>warrior</label>
+    <combatPower>105</combatPower>
+    <weaponTags>
+      <li>NeolithicMeleeAdvanced</li>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+    <apparelRequired>
+      <li>Apparel_ShieldBelt</li>
+    </apparelRequired>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_EliteBase">
+    <!-- 130-Armored: plate armor, gladius/mace/ikwa, war mask -->
+    <defName>Ant_ArmoredAntinium</defName>
+    <label>armored antinium</label>
+    <weaponTags>
+      <li>NeolithicMeleeDecent</li>
+      <li>MedievalMeleeDecent</li>
+    </weaponTags>
+    <apparelRequired>
+      <li>Apparel_WarMask</li>
+      <li>Apparel_PlateArmor</li>
+    </apparelRequired>
+  </PawnKindDef>
+</Defs>

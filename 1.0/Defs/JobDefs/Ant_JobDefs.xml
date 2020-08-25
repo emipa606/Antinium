@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>FillRxlvnFermentingBarrel</defName>
+    <driverClass>AntiniumRaceCode.JobDriver_FillRxlvnFermentingBarrel</driverClass>
+    <reportString>filling TargetA.</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  <JobDef>
+    <defName>TakeRxlvnOutOfFermentingBarrel</defName>
+    <driverClass>AntiniumRaceCode.JobDriver_TakeRxlvnOutOfFermentingBarrel</driverClass>
+    <reportString>taking rxlvn out of TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorkGiverDef>
+    <defName>FillRxlvnFermentingBarrel</defName>
+    <label>fill rxlvn fermenting barrels</label>
+    <giverClass>AntiniumRaceCode.WorkGiver_FillRxlvnFermentingBarrel</giverClass>
+    <workType>Hauling</workType>
+    <verb>fill</verb>
+    <gerund>filling</gerund>
+    <priorityInType>19</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>TakeRxlvnOutOfFermentingBarrel</defName>
+    <label>take rxlvn out of fermenting barrels</label>
+    <giverClass>AntiniumRaceCode.WorkGiver_TakeRxlvnOutOfFermentingBarrel</giverClass>
+    <workType>Hauling</workType>
+    <verb>take rxlvn</verb>
+    <gerund>taking rxlvn from</gerund>
+    <priorityInType>20</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

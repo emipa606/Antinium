@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Queen Relation thoughts -->
+  <ThoughtDef>
+    <defName>Ant_SoldMyQueen</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>120</durationDays>
+    <stackLimit>10</stackLimit>
+    <stackLimitForSameOtherPawn>2</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>queen sold</label>
+        <labelSocial>sold my queen</labelSocial>
+        <description>Someone I love was sold to a trader like a piece of meat!</description>
+        <baseOpinionOffset>-20</baseOpinionOffset>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_KilledMyQueen</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>120</durationDays>
+    <stackLimit>300</stackLimit>
+    <stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>killed my queen</label>
+        <baseOpinionOffset>-100</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>Ant_MyQueenDied</defName>
+    <durationDays>35</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>my queen {0} died</label>
+        <description>Such a wonderful person, gone forever. The universe gets darker every day.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- Thoughts about the queen -->
+  <ThoughtDef>
+    <defName>Ant_QueenHealthEmergency</defName>
+    <workerClass>AntiniumHiveQueen.ThoughtWorker_QueenHealthEmergency</workerClass>
+    <stages>
+      <li>
+        <label>Queen is dying</label>
+        <description>The Queen is dying! I should help her if I can.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- Queen mood -->
+  <ThoughtDef>
+    <defName>Ant_AntQueenMood</defName>
+    <workerClass>AntiniumHiveQueen.ThoughtWorker_AntQueenMood</workerClass>
+    <stages>
+      <li>
+        <label>very upset queen</label>
+        <description>My queen is stressed and angry. I can't be happy when my queen is so upset.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+      <li>
+        <label>upset queen</label>
+        <description>My queen is upset.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+      <li>
+        <label>happy queen</label>
+        <description>My queen is happy. All is right with the world.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_OtherQueenMood</defName>
+    <workerClass>AntiniumHiveQueen.ThoughtWorker_AntQueenMood</workerClass>
+    <stages>
+      <li>
+        <label>very upset queen</label>
+        <description>I feel uncomfortable and anxious. It seems as if everything is going to take a turn for the worse.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li>
+        <label>upset queen</label>
+        <description>I feel uneasy. I'm not sure why.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+      <li>
+        <label>happy queen</label>
+        <description>It feels like things are looking up.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- Thoughts for the queen -->
+  <!-- Queen bedroom thoughts -->
+  <ThoughtDef>
+    <defName>Ant_JealousQueen</defName>
+    <workerClass>ThoughtWorker_BedroomJealous</workerClass>
+    <requiredTraits>
+      <li>Ant_HiveQueenTrait</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>jealous of {0}'s bedroom</label>
+        <description>Others should not be treated better than royalty!</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_GreedyQueen</defName>
+    <workerClass>ThoughtWorker_Greedy</workerClass>
+    <requiredTraits>
+      <li>Ant_HiveQueenTrait</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <!-- used if no bedroom at all -->
+        <label>greedy for impressive bedroom</label>
+        <description>I am Queen. I want a really impressive bedroom.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>greedy for impressive bedroom</label>
+        <description>I am Queen. My room is awful! I need a really impressive bedroom.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>greedy for impressive bedroom</label>
+        <description>My room isn't nearly good enough for a Queen. I need a really impressive bedroom.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>greedy for impressive bedroom</label>
+        <description>My room isn't good enough for royalty. I need a really impressive bedroom.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>greedy for impressive bedroom</label>
+        <description>My room isn't quite good enough. I need a really impressive bedroom befitting my station.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+      <!-- slightly impressive -->
+      <li IsNull="True" />
+      <!-- somewhat impressive -->
+      <li IsNull="True" />
+      <!-- very impressive -->
+      <!-- extremely impressive -->
+      <li>
+        <label>has impressive bedroom</label>
+        <description>My subjects have given me impressive quarters.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <!-- unbelievably impressive -->
+      <li>
+        <label>has unbelievably impressive bedroom</label>
+        <description>My subjects treat me well. They appreciate all the good I do for them.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <!-- wondrously impressive -->
+      <li>
+        <label>has wondrously impressive bedroom</label>
+        <description>My bedroom is amazing! My subjects love me.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

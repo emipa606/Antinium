@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Queen -->
+  <ThingDef ParentName="BuildingNaturalBase">
+    <defName>Ant_RoyalEgg</defName>
+    <label>royal egg</label>
+    <description>A giant egg. It almost seems to hum. You sense that it could be important.</description>
+    <thingClass>AntiniumHiveQueen.Building_AntRoyalEgg</thingClass>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <selectable>true</selectable>
+    <fillPercent>0.40</fillPercent>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <rotatable>false</rotatable>
+    <tickerType>Rare</tickerType>
+    <thingCategories>
+      <li>BuildingsSpecial</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Mass>10</Mass>
+      <Flammability>0.6</Flammability>
+      <MarketValue>50</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(128,107,50,0)</glowColor>
+      </li>
+      <li Class="CompProperties_TemperatureRuinable">
+        <minSafeTemperature>-5</minSafeTemperature>
+        <maxSafeTemperature>45</maxSafeTemperature>
+        <progressPerDegreePerTick>0.000002</progressPerDegreePerTick>
+      </li>
+    </comps>
+    <graphicData>
+      <drawSize>1.6</drawSize>
+      <texPath>Things/Building/Special/RoyalEgg/RoyalEgg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(0.3, 0.6, 0.3)</volume>
+        <offset>(0,0,-0.1)</offset>
+      </shadowData>
+    </graphicData>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <FactionDef Abstract="True" Name="Ant_AntiniumHiveBase">
+    <colorSpectrum>
+      <li>(0, 0.737, 0.847)</li>
+    </colorSpectrum>
+  </FactionDef>
+  <FactionDef Parent="Ant_AntiniumHiveBase">
+    <defName>Ant_AntiniumHivePlayer</defName>
+    <label>Antinium Hive</label>
+    <description>A new hive</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>Antinium</basicMemberKind>
+    <pawnsPlural>antinium</pawnsPlural>
+    <settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+    <playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
+    <factionNameMaker>Ant_NamerFactionAntinium</factionNameMaker>
+    <techLevel>Neolithic</techLevel>
+    <backstoryCategories>
+      <li>Ant_BasicBackstory</li>
+    </backstoryCategories>
+    <settlementTexturePath>World/WorldObjects/TribalSettlement</settlementTexturePath>
+    <factionIconPath>Misc/PlayerHive</factionIconPath>
+    <startingResearchTags>
+      <li>TribalStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Tribal</li>
+    </hairTags>
+    <apparelStuffFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+    </apparelStuffFilter>
+  </FactionDef>
+</Defs>

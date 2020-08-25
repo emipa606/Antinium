@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LetterLabelAberration>Aberration!</LetterLabelAberration>
+  <LetterAberration>{0_labelShort} has become an aberration due to a mental break. He can no longer interact with anyone, and may attempt to kill other colonists. This cannot be treated by a doctor.\n\nYou may need to consider putting {0_objective} down.</LetterAberration>
+  <ContainsMash>Contains {0} / {1} rxlvn mash.</ContainsMash>
+  <ContainsRxlvn>Contains {0} / {1} rxlvn.</ContainsRxlvn>
+
+</LanguageData>

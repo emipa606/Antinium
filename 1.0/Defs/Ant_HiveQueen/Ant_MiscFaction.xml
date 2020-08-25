@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- These are hidden factions that should never interact with the player. -->
+  <!-- They exist to make Queen and GenTwo antinium spawn with the right backstories. -->
+  <FactionDef>
+    <defName>Ant_GenTwoFaction</defName>
+    <label>Antinium</label>
+    <pawnSingular>antinium</pawnSingular>
+    <pawnsPlural>antinium</pawnsPlural>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <humanlikeFaction>false</humanlikeFaction>
+    <fixedName>AntiniumGenTwo</fixedName>
+    <techLevel>Neolithic</techLevel>
+    <backstoryCategories>
+      <li>Ant_GenTwoBackstory</li>
+    </backstoryCategories>
+    <hidden>true</hidden>
+    <geneticVariance>1</geneticVariance>
+    <hairTags>
+      <li>Tribal</li>
+    </hairTags>
+    <apparelStuffFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+    </apparelStuffFilter>
+  </FactionDef>
+  <FactionDef>
+    <defName>Ant_QueenFaction</defName>
+    <label>Antinium</label>
+    <pawnSingular>antinium queen</pawnSingular>
+    <pawnsPlural>antinium queens</pawnsPlural>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <humanlikeFaction>false</humanlikeFaction>
+    <fixedName>AntiniumQueen</fixedName>
+    <techLevel>Neolithic</techLevel>
+    <backstoryCategories>
+      <li>Ant_HiveQueenBackstories</li>
+    </backstoryCategories>
+    <hidden>true</hidden>
+    <geneticVariance>1</geneticVariance>
+    <hairTags>
+      <li>Tribal</li>
+    </hairTags>
+    <apparelStuffFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+    </apparelStuffFilter>
+  </FactionDef>
+</Defs>

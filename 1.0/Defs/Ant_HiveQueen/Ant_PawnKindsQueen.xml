@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--Starting pawn for players-->
+  <PawnKindDef Abstract="True" Name="Ant_GenTwoBasePawnkind">
+    <race>Ant_AntiniumRace</race>
+    <combatPower>40</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_GenTwoBasePawnkind">
+    <defName>Ant_AntiniumQueen</defName>
+    <label>antinium queen</label>
+    <defaultFactionType>Ant_QueenFaction</defaultFactionType>
+    <backstoryCategories>
+      <li>Ant_HiveQueenBackstories</li>
+    </backstoryCategories>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <apparelMoney>
+      <min>0</min>
+      <max>0</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_GenTwoBasePawnkind">
+    <defName>Antinium_GenTwo</defName>
+    <label>antinium</label>
+    <defaultFactionType>Ant_GenTwoFaction</defaultFactionType>
+    <backstoryCategories>
+      <li>Ant_GenTwoBackstory</li>
+    </backstoryCategories>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <apparelMoney>
+      <min>0</min>
+      <max>0</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+</Defs>

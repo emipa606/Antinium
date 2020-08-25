@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AlienRace.BackstoryDef>
+    <defName>Ant_Larva</defName>
+    <title>Larva</title>
+    <titleShort>Larva</titleShort>
+    <baseDescription>[PAWN_nameDef] was a larva.</baseDescription>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>Ant_AntiniumBackstory</li>
+    </spawnCategories>
+    <maleCommonality>100</maleCommonality>
+    <femaleCommonality>0</femaleCommonality>
+    <disallowedTraits>
+      <li>
+        <defName>Ant_GenTwoSoldier</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoFarmer</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoDigger</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoEmpath</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoTunnelGuardian</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoArtisan</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoArchitect</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoMountaineer</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoWarden</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoMadScientist</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoPatrol</defName>
+      </li>
+      <li>
+        <defName>Ant_GenTwoNurturing</defName>
+      </li>
+      <li>
+        <defName>Ant_HiveQueenTrait</defName>
+      </li>
+    </disallowedTraits>
+  </AlienRace.BackstoryDef>
+</Defs>

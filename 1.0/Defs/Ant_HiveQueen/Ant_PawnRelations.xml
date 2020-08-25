@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnRelationDef>
+    <defName>Ant_QueenRelation</defName>
+    <label>queen</label>
+    <importance>195</importance>
+    <diedThought>Ant_MyQueenDied</diedThought>
+    <killedThought>Ant_KilledMyQueen</killedThought>
+    <soldThought>Ant_SoldMyQueen</soldThought>
+    <opinionOffset>30</opinionOffset>
+    <generationChanceFactor>0</generationChanceFactor>
+    <attractionFactor>0</attractionFactor>
+    <implied>false</implied>
+    <familyByBloodRelation>false</familyByBloodRelation>
+  </PawnRelationDef>
+</Defs>

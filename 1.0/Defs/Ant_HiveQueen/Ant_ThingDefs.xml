@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Abstract="True" Name="Ant_AntEggBase" ParentName="OrganicProductBase">
+    <tickerType>Normal</tickerType>
+    <thingCategories>
+      <li>EggsFertilized</li>
+      <!-- TODO: Probably make a new category for these.-->
+    </thingCategories>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <Mass>0.5</Mass>
+      <MaxHitPoints>160</MaxHitPoints>
+      <DeteriorationRate>1</DeteriorationRate>
+      <Flammability>0.6</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>15</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+        <disableIfHatcher>true</disableIfHatcher>
+      </li>
+      <li Class="CompProperties_TemperatureRuinable">
+        <minSafeTemperature>0</minSafeTemperature>
+        <maxSafeTemperature>50</maxSafeTemperature>
+        <progressPerDegreePerTick>0.000015</progressPerDegreePerTick>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="Ant_AntEggBase">
+    <defName>Ant_AntiniumEggFertilized</defName>
+    <label>antinium egg (fert.)</label>
+    <description>A fertilized antinium egg. If all goes well, it should hatch into an antinium larva.</description>
+    <stackLimit>1</stackLimit>
+    <graphicData>
+      <texPath>Things/AntiniumEgg/AntiniumEgg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(230,230,230)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>1</hatcherDaystoHatch>
+        <hatcherPawn>Antinium_GenTwo</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

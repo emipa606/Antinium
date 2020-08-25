@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--food thoughts-->
+  <ThoughtDef>
+    <defName>Ant_AteRawFood</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate raw food</label>
+        <description>I had to eat raw food. We should be cooking that kind of food before eating it. We're not animals.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteKibble</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate kibble</label>
+        <description>I had to eat animal kibble. It's like I don't get to be human any more.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteCorpse</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate corpse</label>
+        <description>I had to eat the flesh of a dead creature without even butchering or cooking it.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteInsectMeatDirect</defName>
+    <showBubble>true</showBubble>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate insect meat</label>
+        <description>I ate some insect meat. It was delicious, but would have been even better cooked.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteInsectMeatAsIngredient</defName>
+    <showBubble>true</showBubble>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate cooked insect meat</label>
+        <description>I ate insect meat, cooked into a delicious meal. It was amazing!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteRottenFood</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate rotten food</label>
+        <description>I ate some disgusting, putrid food. It was melting in my mouth - but not in a good way.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--outdoors and room size-->
+  <ThoughtDef>
+    <defName>Ant_NeedRoomSize</defName>
+    <workerClass>ThoughtWorker_NeedRoomSize</workerClass>
+    <stages>
+      <li>
+        <label>cramped interior</label>
+        <description>This space is cozy, but a little cramped.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>cozy interior</label>
+        <description>This room is small and cozy.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>spacious interior</label>
+        <description>This room is so expansive, I feel exposed.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_NeedOutdoors</defName>
+    <workerClass>ThoughtWorker_NeedOutdoors</workerClass>
+    <stages>
+      <li>
+        <label>entombed underground</label>
+        <description>I've been underground too long. I need to feel the wind and see the birds. I'm worried I will be stuck here forever.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>cabin fever</label>
+        <description>I've been stuck inoors too long. I miss seeing the sky and the birds.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>trapped indoors</label>
+        <description>It's been too long since I've seen the sky.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>stuck indoors</label>
+        <description>I'd like to go outside and get some fresh air.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+    </stages>
+  </ThoughtDef>
+  <!--bedroom & barracks-->
+  <ThoughtDef>
+    <defName>Ant_SleptInBarracks</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>awful barrack</label>
+        <description>I had to sleep in an awful barrack.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+      <!-- dull -->
+      <li IsNull="True" />
+      <!-- mediocre -->
+      <li>
+        <label>decent barrack</label>
+        <description>I got to sleep in a pretty decent barrack.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>slightly impressive barrack</label>
+        <description>I got to sleep in a slightly impressive barrack. I like it.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>impressive barrack</label>
+        <description>I slept in an impressive barrack. It was great.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>very impressive barrack</label>
+        <description>I slept in a very impressive barrack. I love it.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>extremely impressive barrack</label>
+        <description>I slept in an extremely impressive barrack. It was marvelous.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>unbelievably impressive barrack</label>
+        <description>I slept in an unbelievably impressive barrack. It was truly astounding.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>wondrously impressive barrack</label>
+        <description>I slept in a heavenly barrack. It was wondrous.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_SleptInBedroom</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>awful bedroom</label>
+        <description>I had to sleep in an awful bedroom. Not only was it a horrible room, but I was all alone!</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>dull bedroom</label>
+        <description>I had to sleep in a dull bedroom. Not only that, but I was all by myself.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>mediocre bedroom</label>
+        <description>I had to sleep in a mediocre bedroom. I really don't like this.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>decent bedroom</label>
+        <description>I slept in a decent bedroom, but I really dislike being alone.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>slightly impressive bedroom</label>
+        <description>I got to sleep in a pretty nice bedroom. But it would have been better if I could have shared it.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>impressive bedroom</label>
+        <description>I got to sleep in an impressive bedroom. It sucks that I couldn't share it, though.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li>
+        <label>very impressive bedroom</label>
+        <description>I slept in a very impressive bedroom. I wish I could have shared it.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+      <li>
+        <label>extremely impressive bedroom</label>
+        <description>I slept in an extremely impressive bedroom. I wish I could have shared it.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>unbelievably impressive bedroom</label>
+        <description>The bedroom I slept in was so impressive.  I wish I could have shared it with my friends.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>wondrously impressive bedroom</label>
+        <description>I slept in a bedroom that was simply wondrous. It could only have been better if my friends had been there too.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- prison cells & barracks-->
+  <ThoughtDef>
+    <defName>Ant_PrisonBarracks</defName>
+    <workerClass>ThoughtWorker_PrisonBarracksImpressiveness</workerClass>
+    <stages>
+      <li>
+        <label>awful prison barrack</label>
+        <description>My prison barrack is an awful place.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+      <!-- dull -->
+      <li IsNull="True" />
+      <!-- mediocre -->
+      <li>
+        <label>decent prison barrack</label>
+        <description>My prison barrack is pretty decent.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>slightly impressive prison barrack</label>
+        <description>My prison barrack seems to be a nice place.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>impressive prison barrack</label>
+        <description>My prison barrack is impressive. I can't believe they are keeping me in a room like this.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>very impressive prison barrack</label>
+        <description>My prison barrack is very impressive. I can't believe they are keeping me in a room like this. I love it!</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>extremely impressive prison barrack</label>
+        <description>My prison barrack is extremely impressive. I can't believe they are keeping me in a room like this. I love it!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>unbelievably impressive prison barrack</label>
+        <description>My prison barrack is unbelievably impressive. This is the best place ever!</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>wondrously impressive prison barrack</label>
+        <description>My prison barrack is the best place one can ever imagine. I can stay here forever.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_PrisonCell</defName>
+    <workerClass>ThoughtWorker_PrisonCellImpressiveness</workerClass>
+    <stages>
+      <li>
+        <label>awful cell</label>
+        <description>My prison cell is an awful place.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>dull cell</label>
+        <description>I'm living in a dull cell.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li IsNull="True" />
+      <!-- mediocre -->
+      <li IsNull="True" />
+      <!-- decent -->
+      <li>
+        <label>slightly impressive cell</label>
+        <description>My prison cell is slightly impressive.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+      <li>
+        <label>somewhat impressive cell</label>
+        <description>My prison cell is impressive. I like it.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>very impressive cell</label>
+        <description>My prison cell is very impressive. I like it.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>extremely impressive cell</label>
+        <description>My prison cell is extremely impressive. I can't believe they are keeping me in a place like this.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>unbelievably impressive cell</label>
+        <description>My prison cell is unbelievably impressive. I can't believe they are keeping me in a place like this.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>wondrously impressive cell</label>
+        <description>My prison cell is wonderful! I can't believe they are keeping me in a place like this.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--death-->
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>Ant_KnowGuestExecuted</defName>
+    <durationDays>3</durationDays>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Bloodlust</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>justified execution</label>
+        <description>A guilty prisoner or guest was executed. It was justified, but still sad.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li>
+        <label>someone was euthanized</label>
+        <!-- generic humane -->
+        <description>A prisoner or guest was euthanized. It was humane, but still sad.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>someone was executed</label>
+        <!-- generic brutal -->
+        <description>A prisoner or guest was killed in cold blood. It seemed a bit evil.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>someone was organ-murdered</label>
+        <!-- died because of organ harvesting -->
+        <description>A prisoner or guest died because the colony took body parts from him. It's horrible.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>Ant_KnowColonistExecuted</defName>
+    <durationDays>7</durationDays>
+    <stackLimit>5</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>justified execution of colonist</label>
+        <description>A guilty colonist was executed. It was justified, but still sad.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>colonist euthanized</label>
+        <!-- generic humane, can't be worse than KnowColonistDied -->
+        <description>A colonist was euthanized. It was humane, but still sad.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>colonist executed</label>
+        <!-- generic brutal -->
+        <description>A colonist was killed in cold blood. It seemed a bit evil.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>colonist organ-harvested</label>
+        <!-- died because of organ harvesting -->
+        <description>A colonist died because someone took body parts from him. It's horrible.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>Ant_KnowPrisonerDiedInnocent</defName>
+    <durationDays>4</durationDays>
+    <stackLimit>5</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Bloodlust</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>innocent prisoner died</label>
+        <description>One of our prisoners died despite being harmless. We should be able to take care of our prisoners. If we wanted them dead, we could have at least conducted an orderly execution rather than permit that barbarism.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>Ant_KnowColonistDied</defName>
+    <durationDays>7</durationDays>
+    <stackLimit>5</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Bloodlust</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>colonist died</label>
+        <description>One of our people died. We should be able to take care of our people.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>Ant_PawnWithGoodOpinionDied</defName>
+    <durationDays>20</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>my friend {0} died</label>
+        <description>Such a wonderful person, gone forever. The universe gets darker every day.</description>
+        <baseMoodEffect>-13</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--family member deaths-->
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>Ant_MyHusbandDied</defName>
+    <stages>
+      <li>
+        <label>my husband {0} died</label>
+        <description>My husband is dead. I am alone.</description>
+        <baseMoodEffect>-26</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>Ant_MyWifeDied</defName>
+    <stages>
+      <li>
+        <label>my wife {0} died</label>
+        <description>My wife is dead. I am alone.</description>
+        <baseMoodEffect>-26</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>Ant_MyFianceDied</defName>
+    <stages>
+      <li>
+        <label>my fiance {0} died</label>
+        <description>My fiance died. Such a man... my future is gone.</description>
+        <baseMoodEffect>-22</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>Ant_MyFianceeDied</defName>
+    <stages>
+      <li>
+        <label>my fiancée {0} died</label>
+        <description>My fiancée died. Such a woman... my future is gone.</description>
+        <baseMoodEffect>-22</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>Ant_MyLoverDied</defName>
+    <stages>
+      <li>
+        <label>my lover {0} died</label>
+        <description>My lover died. I am so alone.</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!--organ harvesting-->
+  <ThoughtDef>
+    <defName>Ant_KnowGuestOrganHarvested</defName>
+    <durationDays>6</durationDays>
+    <stackLimit>4</stackLimit>
+    <stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>someone's organ harvested</label>
+        <description>The colony took body parts from a guest or prisoner. It's horrible, breaking someone down for parts when they have no choice.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_KnowColonistOrganHarvested</defName>
+    <durationDays>9</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>colonist's organ harvested</label>
+        <description>Someone took body parts from a colonist. It's horrible, breaking someone down for parts when they have no choice.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- Banishing pawns -->
+  <ThoughtDef>
+    <defName>Ant_ColonistBanished</defName>
+    <durationDays>8</durationDays>
+    <stackLimit>5</stackLimit>
+    <showBubble>true</showBubble>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>colonist banished</label>
+        <description>We just banished someone. I hope they'll make it, but I'm worried.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_ColonistBanishedToDie</defName>
+    <durationDays>9</durationDays>
+    <stackLimit>5</stackLimit>
+    <showBubble>true</showBubble>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>colonist banished to death</label>
+        <description>We banished someone in such a way that there's almost no way they'll survive.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <!-- misc -->
+  <ThoughtDef>
+    <defName>Ant_SoakingWet</defName>
+    <durationDays>0.15</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>soaking wet</label>
+        <description>Water! Water everywhere! Aaaaah! Aaaaah! I'm drowning!</description>
+        <baseMoodEffect>-25</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_ArtifactMoodBoost</defName>
+    <durationDays>1.0</durationDays>
+    <stackLimit>3</stackLimit>
+    <stages>
+      <li>
+        <label>strange feeling</label>
+        <description>I feel strange, but also very relaxed.</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_KnowPrisonerSold</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>5</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>a prisoner was sold</label>
+        <description>This colony sold a prisoner into slavery. That's a worrying thought.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

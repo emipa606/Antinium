@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--Starting pawn for players-->
+  <PawnKindDef Abstract="True" Name="Ant_AntiniumBasePawnkind">
+    <race>Ant_AntiniumRace</race>
+    <combatPower>40</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Ant_AntiniumBasePawnkind">
+    <defName>Antinium</defName>
+    <label>antinium</label>
+    <defaultFactionType>Ant_AntiniumHivePlayer</defaultFactionType>
+    <backstoryCategories>
+      <li>Ant_BasicBackstory</li>
+    </backstoryCategories>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>Tribal</li>
+      <li>Neolithic</li>
+    </apparelTags>
+    <itemQuality>Poor</itemQuality>
+    <gearHealthRange>
+      <min>0.2</min>
+      <max>1.1</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>0</min>
+      <max>80</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+</Defs>

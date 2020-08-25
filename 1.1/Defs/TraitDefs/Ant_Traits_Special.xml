@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Queen -->
+  <TraitDef>
+    <defName>Ant_HiveQueenTrait</defName>
+    <commonality>0</commonality>
+    <commonalityFemale>1</commonalityFemale>
+    <disabledWorkTags>Violent</disabledWorkTags>
+    <disabledWorkTypes>
+      <li>Firefighter</li>
+      <li>BasicWorker</li>
+      <li>Handling</li>
+      <li>Cooking</li>
+      <li>Hunting</li>
+      <li>Construction</li>
+      <li>Growing</li>
+      <li>Mining</li>
+      <li>PlantCutting</li>
+      <li>Smithing</li>
+      <li>Tailoring</li>
+      <li>Art</li>
+      <li>Crafting</li>
+      <li>Hauling</li>
+      <li>Cleaning</li>
+      <li>Research</li>
+    </disabledWorkTypes>
+    <degreeDatas>
+      <li>
+        <label>antinium hive queen</label>
+        <description>{PAWN_nameDef} was born to rule.\n\nOnly female Antinium have this trait. Queens are special, some of the special functions will not work with other pawns.</description>
+        <marketValueFactorOffset>1.50</marketValueFactorOffset>
+        <statOffsets>
+          <MoveSpeed>-0.2</MoveSpeed>
+          <HungerRateMultiplier>0.30</HungerRateMultiplier>
+          <WorkSpeedGlobal>-0.30</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_Empath</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_Warden</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <!--  Antinium -->
+  <TraitDef>
+    <!-- Ranger -->
+    <defName>Ant_Ranger</defName>
+    <disabledWorkTypes>
+      <li>Doctor</li>
+      <li>Smithing</li>
+      <li>Tailoring</li>
+      <li>Crafting</li>
+    </disabledWorkTypes>
+    <degreeDatas>
+      <li>
+        <label>antinium ranger</label>
+        <description>{PAWN_nameDef} was designed to patroll the outskirts of [PAWN_possessive] territory for intruders.</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <MiningSpeed>.10</MiningSpeed>
+          <FoodPoisonChance>-.10</FoodPoisonChance>
+          <ShootingAccuracyPawn>3</ShootingAccuracyPawn>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_Empath</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Warden</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <TraitDef>
+    <!-- Digger -->
+    <defName>Ant_Digger</defName>
+    <disabledWorkTypes>
+      <li>Doctor</li>
+      <li>Warden</li>
+      <li>Research</li>
+    </disabledWorkTypes>
+    <degreeDatas>
+      <li>
+        <label>antinium digger</label>
+        <description>{PAWN_nameDef} was designed to be a digger.</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <MiningSpeed>.10</MiningSpeed>
+          <MiningYield>.10</MiningYield>
+          <PlantWorkSpeed>.05</PlantWorkSpeed>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Empath</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_Warden</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <TraitDef>
+    <!-- Nurturing: Caretaker -->
+    <defName>Ant_Caretaker</defName>
+    <degreeDatas>
+      <li>
+        <label>antinium caretaker</label>
+        <description>{PAWN_nameDef} has a nurturing nature.</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <TradePriceImprovement>.10</TradePriceImprovement>
+          <PlantHarvestYield>.15</PlantHarvestYield>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_Empath</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_Warden</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+    </conflictingTraits>
+  </TraitDef>
+  <TraitDef>
+    <!-- Warden: Slave-maker -->
+    <defName>Ant_Warden</defName>
+    <disabledWorkTypes>
+      <li>Cooking</li>
+      <li>Growing</li>
+      <li>PlantCutting</li>
+      <li>Smithing</li>
+      <li>Tailoring</li>
+      <li>Crafting</li>
+    </disabledWorkTypes>
+    <degreeDatas>
+      <li>
+        <label>slave-maker</label>
+        <description>{PAWN_nameDef} was designed to recruit new workers for the hive, willingly or otherwise.</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <SocialImpact>.10</SocialImpact>
+          <MedicalTendSpeed>.10</MedicalTendSpeed>
+          <MedicalSurgerySuccessChance>.10</MedicalSurgerySuccessChance>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_Empath</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <TraitDef>
+    <!-- Genetic Researcher -->
+    <defName>Ant_GeneResearcher</defName>
+    <disabledWorkTypes>
+      <li>Mining</li>
+      <li>Warden</li>
+      <li>Hauling</li>
+      <li>Cleaning</li>
+    </disabledWorkTypes>
+    <degreeDatas>
+      <li>
+        <label>antinium geneticist</label>
+        <description>{PAWN_nameDef} conducts genetic research for the hive, usually by taking creatures apart to learn how they work.</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <ResearchSpeed>.05</ResearchSpeed>
+          <MedicalSurgerySuccessChance>.10</MedicalSurgerySuccessChance>
+          <DrugSynthesisSpeed>.10</DrugSynthesisSpeed>
+          <ButcheryFleshSpeed>.10</ButcheryFleshSpeed>
+          <ButcheryFleshEfficiency>.10</ButcheryFleshEfficiency>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_Empath</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_Warden</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <TraitDef>
+    <!-- Empath : Euonium -->
+    <defName>Ant_Empath</defName>
+    <disabledWorkTags>Violent</disabledWorkTags>
+    <degreeDatas>
+      <li>
+        <label>euonium</label>
+        <description>{PAWN_nameDef} is especially good at understanding the people and animals around [PAWN_pronoun]</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <PsychicSensitivity>0.5</PsychicSensitivity>
+          <TameAnimalChance>.10</TameAnimalChance>
+          <NegotiationAbility>.10</NegotiationAbility>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_TunnelGuardian</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_Warden</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <TraitDef>
+    <!-- Tunnel Guardian -->
+    <defName>Ant_TunnelGuardian</defName>
+    <disabledWorkTypes>
+      <li>Smithing</li>
+      <li>Tailoring</li>
+      <li>Art</li>
+    </disabledWorkTypes>
+    <degreeDatas>
+      <li>
+        <label>tunnel guardian</label>
+        <description>{PAWN_nameDef} was designed to expand and guard the tunnels of [PAWN_possessive] hive.</description>
+        <marketValueFactorOffset>0.40</marketValueFactorOffset>
+        <statOffsets>
+          <MiningSpeed>.10</MiningSpeed>
+          <MiningYield>.01</MiningYield>
+          <MedicalTendQuality>.05</MedicalTendQuality>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+      <!--<li>Ant_Farmer</li>-->
+      <li>Ant_Digger</li>
+      <li>Ant_Empath</li>
+      <!--<li>Ant_Artisan</li>-->
+      <!--<li>Ant_Architect</li>-->
+      <li>Ant_Ranger</li>
+      <li>Ant_Warden</li>
+      <li>Ant_GeneResearcher</li>
+      <!--<li>Ant_Patrol</li>-->
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  <!-- To be fixed
+  
+   <TraitDef>					
+    <defName>Ant_Farmer</defName>
+	<disabledWorkTypes>
+		<li>Mining</li>
+	</disabledWorkTypes>
+    <degreeDatas>
+    <li>
+        <label>antinium farmer</label>
+        <description>{PAWN_nameDef} was designed to be a farmer</description>
+		<marketValueFactorOffset>0.40</marketValueFactorOffset>
+		<statOffsets>
+		  <TrainAnimalChance>.10</TrainAnimalChance>
+		  <PlantWorkSpeed>.10</PlantWorkSpeed>
+		  <PlantHarvestYield>.10</PlantHarvestYield>
+        </statOffsets>
+	</li>
+    </degreeDatas>
+	<conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+	  <li>Ant_Digger</li>
+	  <li>Ant_Empath</li>
+	  <li>Ant_TunnelGuardian</li>
+	  <li>Ant_Artisan</li>
+	  <li>Ant_Architect</li>
+	  <li>Ant_Ranger</li>
+	  <li>Ant_Warden</li>
+	  <li>Ant_GeneResearcher</li>
+	  <li>Ant_Patrol</li>
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  
+  <TraitDef>				
+    <defName>Ant_Artisan</defName>
+	<disabledWorkTypes>
+		<li>Firefighter</li>
+		<li>Handling</li>
+	</disabledWorkTypes>
+    <degreeDatas>
+    <li>
+        <label>antinium artisan </label>
+        <description>{PAWN_nameDef} was designed to be an artisan, built to work with his hands</description>
+		<marketValueFactorOffset>0.40</marketValueFactorOffset>
+		<statOffsets>
+		  <GeneralLaborSpeed>.12</GeneralLaborSpeed>
+        </statOffsets>
+	</li>
+    </degreeDatas>
+	<conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+	  <li>Ant_Farmer</li>
+	  <li>Ant_Digger</li>
+	  <li>Ant_Empath</li>
+	  <li>Ant_TunnelGuardian</li>
+	  <li>Ant_Architect</li>
+	  <li>Ant_Ranger</li>
+	  <li>Ant_Warden</li>
+	  <li>Ant_GeneResearcher</li>
+	  <li>Ant_Patrol</li>
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  
+  
+  <TraitDef>				
+    <defName>Ant_Architect</defName>
+	<disabledWorkTags>ManualDumb</disabledWorkTags>
+    <degreeDatas>
+    <li>
+        <label>antinium architect</label>
+        <description>{PAWN_nameDef} was designed to be an architect, creating and building stuff.</description>
+		<marketValueFactorOffset>0.40</marketValueFactorOffset>
+		<statOffsets>
+		  <ConstructionSpeed>.10</ConstructionSpeed>
+		  <ConstructSuccessChance>.10</ConstructSuccessChance>
+		  <FixBrokenDownBuildingSuccessChance>.10</FixBrokenDownBuildingSuccessChance>
+        </statOffsets>
+	</li>
+    </degreeDatas>
+	<conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+	  <li>Ant_Farmer</li>
+	  <li>Ant_Digger</li>
+	  <li>Ant_Empath</li>
+	  <li>Ant_TunnelGuardian</li>
+	  <li>Ant_Artisan</li>
+	  <li>Ant_Ranger</li>
+	  <li>Ant_Warden</li>
+	  <li>Ant_GeneResearcher</li>
+	  <li>Ant_Patrol</li>
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+ 
+    
+   <TraitDef>			
+    <defName>Ant_Patrol</defName>
+	<disabledWorkTypes>
+		<li>Cooking</li>
+		<li>Art</li>	
+	</disabledWorkTypes>
+    <degreeDatas>
+    <li>
+        <label>antinium patrol</label>
+        <description>{PAWN_nameDef} was designed to be a patrol.</description>
+		<marketValueFactorOffset>0.40</marketValueFactorOffset>
+		<statOffsets>
+		  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+		  <AimingDelayFactor>-.20</AimingDelayFactor>
+		  <ConstructionSpeed>.10</ConstructionSpeed>
+        </statOffsets>
+	</li>
+    </degreeDatas>
+	<conflictingTraits>
+      <li>Ant_HiveQueenTrait</li>
+	  <li>Ant_Farmer</li>
+	  <li>Ant_Digger</li>
+	  <li>Ant_Empath</li>
+	  <li>Ant_TunnelGuardian</li>
+	  <li>Ant_Artisan</li>
+	  <li>Ant_Architect</li>
+	  <li>Ant_Ranger</li>
+	  <li>Ant_Warden</li>
+	  <li>Ant_GeneResearcher</li>
+      <li>Ant_Caretaker</li>
+    </conflictingTraits>
+  </TraitDef>
+  
+  
+  -->
+</Defs>
