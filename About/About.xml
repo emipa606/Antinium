@@ -27,36 +27,40 @@
     <li>brrainz.harmony</li>
     <li>erdelf.HumanoidAlienRaces</li>
   </loadAfter>
-  <description>Update of Zylles mod
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of Zylles mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1892455303
 
-[img]https://i.imgur.com/GYswkZ7.png[/img]
+- Throws an error about backstories if dev-mode is turned on, can be ignored.
 
-Support-chat:
-https://invite.gg/mlie
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
-Non-steam version:
-https://github.com/emipa606/Antinium
+[table]
+	[tr]
+		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+		[td][url=https://github.com/emipa606/Antinium][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+	[/tr]
+[/table]
 	
-- Throws an error about backstories if dev-mode is turned on, can be ignored.	
+[img]https://i.imgur.com/NOW7jU1.png[/img]
 
---- Original Description ---
-Overview
-Adds a new playable race based on the Antinium from the Wandering Inn web serial by pirateaba
-https://wanderinginn.com
+I am no longer supporting this mod!
+1.2 version by Mlie here: https://steamcommunity.com/sharedfiles/filedetails/?id=2209261976 
+
+
+[h1]Overview[/h1]
+Adds a new playable race based on the Antinium from [url=https://wanderinginn.com]the Wandering Inn web serial by pirateaba[/url]
 
 Includes a player faction, starting scenario and two AI factions.
 
-Antinium are a hive species that resembles giant ants. This is a difficult, low-tech start.
-
-Antinium are good at melee, and have a lot of natural armor. They're also good at mining, construction, and butchery. They're bad at ranged combat, farming, animal taming, and cooking - Antinium can safely eat raw or rotten food, so their cooks don't always know what isn't safe for other species to eat (lots of food poisoning if an Antinium cook is feeding a non-Antinium colony).
-
+Antinium are a hive species that resembles giant ants. This is a difficult, low-tech start. 
+	
+Antinium are good at melee, and have a lot of natural armor. They're also good at mining, construction, and butchery. They're bad at ranged combat, farming, animal taming, and cooking - Antinium can safely eat raw or rotten food, so their cooks don't always know what isn't safe for other species to eat (lots of food poisoning if an Antinium cook is feeding a non-Antinium colony). 
+	
 Antinium like eating insect meat and are less bothered by cannibalism or mistreating prisoners, but more bothered if someone close to them dies. They really hate being wet. Antinium have many other preferences that may seem strange to humans; it may be difficult to integrate outsiders into an established hive.
 
-Note: This is a work in progress. More features are planned, and please tell me if you run into any issues
 
-
-Hive Queens
+[h1]Hive Queens[/h1]
 
 Any faction can get a hive queen. Minimum colony population is 6, with at least 3 colonists being Antinium.
 
@@ -67,10 +71,20 @@ Antinium and pawns with high psychic sensitivity will be the most in tune with t
 A healthy happy queen will give health and mood boosts to colonists, and a sick or upset one can bring the whole colony down. The Queen herself will be very demanding and incapable of most work.
 
 
-Credits:
+[h1]Important stuff[/h1]
+
+[url=https://steamcommunity.com/workshop/filedetails/?id=839005762]Requires Humanoid Alien Races[/url]
+
+[url=http://github.com/Zylleon/Antinium/releases/latest]Get it from Github[/url]
+
+[url=https://ko-fi.com/zylleon][img]https://i.imgur.com/7vEe6JU.png[/img][/url]
+[url=https://discord.gg/Ujtra8s]Discord[/url]
+[url=https://steamcommunity.com/profiles/76561197998830956/myworkshopfiles/?appid=294100]My other mods[/url]
+
+
+[b]Credits:[/b]
 pirateaba for the story
 Kooreth for the idea
 rebelrot96 and Mister Mansion for the Gnoll Race 1.0 mod, which I used as a reference
-Everyone in the RimWorld modding discord and the Human Alien Races discord for lots of help, especially dninemfive and Pelador
-</description>
+Everyone in the RimWorld modding discord and the Human Alien Races discord for lots of help, especially dninemfive and Pelador</description>
 </ModMetaData>
