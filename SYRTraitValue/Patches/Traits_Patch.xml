@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/TraitDef[defName = "Ant_BirdLover"]</xpath>
+    <value>
+      <li Class="SyrTraitValue.TraitValueExtension">
+        <traitValues>
+          <li>0</li>
+        </traitValues>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/TraitDef[defName = "Ant_HiveQueenTrait"]</xpath>
+    <value>
+      <li Class="SyrTraitValue.TraitValueExtension">
+        <traitValues>
+          <li>10</li>
+        </traitValues>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/TraitDef[defName = "Ant_Ranger" or defName = "Ant_Digger" or defName = "Ant_Caretaker" or defName = "Ant_Warden" or defName = "Ant_GeneResearcher" or defName = "Ant_Empath" or defName = "Ant_TunnelGuardian"]</xpath>
+    <value>
+      <li Class="SyrTraitValue.TraitValueExtension">
+        <traitValues>
+          <li>0</li>
+        </traitValues>
+      </li>
+    </value>
+  </Operation>
+</Patch>

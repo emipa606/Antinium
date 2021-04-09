@@ -26,12 +26,15 @@
   <loadAfter>
     <li>brrainz.harmony</li>
     <li>erdelf.HumanoidAlienRaces</li>
+    <li>syrchalis.traitvalue</li>
   </loadAfter>
   <description>[img]https://i.imgur.com/WAEzk68.png[/img]
 Update of Zylles mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1892455303
 
 - Throws an error about backstories if dev-mode is turned on, can be ignored.
+- Should not spawn as permanent enemy towards Empire
+- Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2451324814][SYR] Trait Value[/url]
 
 [img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
@@ -43,10 +46,6 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1892455303
 [/table]
 	
 [img]https://i.imgur.com/NOW7jU1.png[/img]
-
-I am no longer supporting this mod!
-1.2 version by Mlie here: https://steamcommunity.com/sharedfiles/filedetails/?id=2209261976 
-
 
 [h1]Overview[/h1]
 Adds a new playable race based on the Antinium from [url=https://wanderinginn.com]the Wandering Inn web serial by pirateaba[/url]
@@ -71,20 +70,22 @@ Antinium and pawns with high psychic sensitivity will be the most in tune with t
 A healthy happy queen will give health and mood boosts to colonists, and a sick or upset one can bring the whole colony down. The Queen herself will be very demanding and incapable of most work.
 
 
-[h1]Important stuff[/h1]
-
-[url=https://steamcommunity.com/workshop/filedetails/?id=839005762]Requires Humanoid Alien Races[/url]
-
-[url=http://github.com/Zylleon/Antinium/releases/latest]Get it from Github[/url]
-
-[url=https://ko-fi.com/zylleon][img]https://i.imgur.com/7vEe6JU.png[/img][/url]
-[url=https://discord.gg/Ujtra8s]Discord[/url]
-[url=https://steamcommunity.com/profiles/76561197998830956/myworkshopfiles/?appid=294100]My other mods[/url]
-
-
 [b]Credits:[/b]
 pirateaba for the story
 Kooreth for the idea
 rebelrot96 and Mister Mansion for the Gnoll Race 1.0 mod, which I used as a reference
-Everyone in the RimWorld modding discord and the Human Alien Races discord for lots of help, especially dninemfive and Pelador</description>
+Everyone in the RimWorld modding discord and the Human Alien Races discord for lots of help, especially dninemfive and Pelador
+
+
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
+</description>
 </ModMetaData>
+
