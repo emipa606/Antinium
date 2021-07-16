@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -14,79 +11,80 @@ namespace AntiniumRaceCode
 
         private static string NoWortTrans;
 
-        public override ThingRequest PotentialWorkThingRequest
-        {
-            get
-            {
-                return ThingRequest.ForDef(AntDefOf.Ant_RxlvnFermentingBarrel);
-            }
-        }
+        public override ThingRequest PotentialWorkThingRequest =>
+            ThingRequest.ForDef(AntDefOf.Ant_RxlvnFermentingBarrel);
 
-        public override PathEndMode PathEndMode
-        {
-            get
-            {
-                return PathEndMode.Touch;
-            }
-        }
+        public override PathEndMode PathEndMode => PathEndMode.Touch;
 
         public static void ResetStaticData()
         {
-            WorkGiver_FillRxlvnFermentingBarrel.TemperatureTrans = "BadTemperature".Translate().ToLower();
-            WorkGiver_FillRxlvnFermentingBarrel.NoWortTrans = "NoWort".Translate();
+            TemperatureTrans = "BadTemperature".Translate().ToLower();
+            NoWortTrans = "NoWort".Translate();
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            Building_RxlvnFermentingBarrel building_RxlvnBarrel = t as Building_RxlvnFermentingBarrel;
-            if (building_RxlvnBarrel == null || building_RxlvnBarrel.Fermented || building_RxlvnBarrel.SpaceLeftForMash <= 0)
+            if (!(t is Building_RxlvnFermentingBarrel building_RxlvnBarrel) || building_RxlvnBarrel.Fermented ||
+                building_RxlvnBarrel.SpaceLeftForMash <= 0)
             {
                 return false;
             }
-            float ambientTemperature = building_RxlvnBarrel.AmbientTemperature;
-            CompProperties_TemperatureRuinable compProperties = building_RxlvnBarrel.def.GetCompProperties<CompProperties_TemperatureRuinable>();
-            if (ambientTemperature < compProperties.minSafeTemperature + 2f || ambientTemperature > compProperties.maxSafeTemperature - 2f)
+
+            var ambientTemperature = building_RxlvnBarrel.AmbientTemperature;
+            var compProperties = building_RxlvnBarrel.def.GetCompProperties<CompProperties_TemperatureRuinable>();
+            if (ambientTemperature < compProperties.minSafeTemperature + 2f ||
+                ambientTemperature > compProperties.maxSafeTemperature - 2f)
             {
-                JobFailReason.Is(WorkGiver_FillRxlvnFermentingBarrel.TemperatureTrans, null);
+                JobFailReason.Is(TemperatureTrans);
                 return false;
             }
-            if (!t.IsForbidden(pawn))
+
+            if (t.IsForbidden(pawn))
             {
-                LocalTargetInfo target = t;
-                if (pawn.CanReserve(target, 1, -1, null, forced))
-                {
-                    if (pawn.Map.designationManager.DesignationOn(t, DesignationDefOf.Deconstruct) != null)
-                    {
-                        return false;
-                    }
-                    if (this.FindWort(pawn, building_RxlvnBarrel) == null)
-                    {
-                        JobFailReason.Is(WorkGiver_FillRxlvnFermentingBarrel.NoWortTrans, null);
-                        return false;
-                    }
-                    return !t.IsBurning();
-                }
+                return false;
             }
+
+            LocalTargetInfo target = t;
+            if (!pawn.CanReserve(target, 1, -1, null, forced))
+            {
+                return false;
+            }
+
+            if (pawn.Map.designationManager.DesignationOn(t, DesignationDefOf.Deconstruct) != null)
+            {
+                return false;
+            }
+
+            if (FindWort(pawn) != null)
+            {
+                return !t.IsBurning();
+            }
+
+            JobFailReason.Is(NoWortTrans);
             return false;
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            Building_RxlvnFermentingBarrel barrel = (Building_RxlvnFermentingBarrel)t;
-            Thing t2 = this.FindWort(pawn, barrel);
+            var unused = (Building_RxlvnFermentingBarrel) t;
+            var t2 = FindWort(pawn);
             return new Job(AntDefOf.FillRxlvnFermentingBarrel, t, t2);
         }
 
-        private Thing FindWort(Pawn pawn, Building_RxlvnFermentingBarrel barrel)
+        private Thing FindWort(Pawn pawn)
         {
-            Predicate<Thing> predicate = (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false);
-            IntVec3 position = pawn.Position;
-            Map map = pawn.Map;
-            ThingRequest thingReq = ThingRequest.ForDef(AntDefOf.Ant_RxlvnMash);
-            PathEndMode peMode = PathEndMode.ClosestTouch;
-            TraverseParms traverseParams = TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false);
-            Predicate<Thing> validator = predicate;
-            return GenClosest.ClosestThingReachable(position, map, thingReq, peMode, traverseParams, 9999f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
+            bool Predicate(Thing x)
+            {
+                return !x.IsForbidden(pawn) && pawn.CanReserve(x);
+            }
+
+            var position = pawn.Position;
+            var map = pawn.Map;
+            var thingReq = ThingRequest.ForDef(AntDefOf.Ant_RxlvnMash);
+            var peMode = PathEndMode.ClosestTouch;
+            var traverseParams = TraverseParms.For(pawn);
+            var validator = (Predicate<Thing>) Predicate;
+            return GenClosest.ClosestThingReachable(position, map, thingReq, peMode, traverseParams, 9999f, validator);
         }
     }
 }

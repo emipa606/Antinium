@@ -14,4 +14,10 @@
     <li IfModActive="Ludeon.Rimworld.Royalty">Royalty</li>
     <li IfModActive="syrchalis.traitvalue">SYRTraitValue</li>
   </v1.2>
+  <v1.3>
+    <li>1.3</li>
+    <li>/</li>
+    <li IfModActive="Ludeon.Rimworld.Royalty">Royalty</li>
+    <li IfModActive="syrchalis.traitvalue">SYRTraitValue</li>
+  </v1.3>
 </loadFolders>

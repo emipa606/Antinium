@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace AntiniumHiveQueen
 {
-
     [DefOf]
     public static class AntHQDefOf
     {
@@ -18,6 +13,7 @@ namespace AntiniumHiveQueen
         // public static HediffDef Ant_RoyalLarvaHediff;
 
         public static PawnRelationDef Ant_QueenRelation;
+
         //public static HediffDef Ant_HiveQueenHediff;
         public static HediffDef Ant_HiveQueenInspHediff;
         public static ThingDef Ant_RoyalEgg;
@@ -29,7 +25,5 @@ namespace AntiniumHiveQueen
 
         // public static GameCondition GameCondition_HiveQueen;
         // public static GameCondition GameCondition_HiveQueenDied;
-
     }
-
 }

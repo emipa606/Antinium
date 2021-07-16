@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>Ant_RoyalEggSpawn</defName>
+    <label>royal egg spawn</label>
+    <category>Special</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>AntiniumHiveQueen.IncidentWorker_RoyalEggSpawn</workerClass>
+    <baseChance>0</baseChance>
+    <!-- Manual fire only -->
+    <minRefireDays>25</minRefireDays>
+    <earliestDay>40</earliestDay>
+  </IncidentDef>
+</Defs>

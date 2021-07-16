@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Bird Lover -->
+  <ThoughtDef>
+    <defName>Ant_BirdLeatherApparel</defName>
+    <workerClass>AntiniumRaceCode.ThoughtWorker_BirdLoverApparel</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>birdskin {0}</label>
+        <description>I'm wearing a bird</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+      <li>
+        <label>birdskin {0} (+1)</label>
+        <description>I'm wearing birds!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>birdskin {0} (+2)</label>
+        <description>I'm wearing lots of birds!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>birdskin {0} etc</label>
+        <description>I'm wearing every bird! I'm covered in birds!</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+    <requiredTraits>
+      <li>Ant_BirdLover</li>
+    </requiredTraits>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_BirdLoverSawBird</defName>
+    <workerClass>AntiniumRaceCode.ThoughtWorker_BirdLoverSawBird</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <!--<durationDays>0.5</durationDays>-->
+    <stages>
+      <li>
+        <label>saw bird</label>
+        <description>I saw a bird!</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>saw bird (x2)</label>
+        <description>I saw a bird!</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>saw birds (x3)</label>
+        <description>I saw birds!</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>saw birds (x4)</label>
+        <description>I saw birds!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>saw birds (5+)</label>
+        <description>I saw lots of birds!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+    <requiredTraits>
+      <li>Ant_BirdLover</li>
+    </requiredTraits>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteBirdMeatDirect</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <requiredTraits>
+      <li>Ant_BirdLover</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>ate bird meat</label>
+        <description>I got to eat a bird!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Ant_AteBirdMeatAsIngredient</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <requiredTraits>
+      <li>Ant_BirdLover</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>ate bird meat</label>
+        <description>I got to eat a bird!</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

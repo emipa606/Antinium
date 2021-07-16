@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace AntiniumHiveQueen
 {
     public class IncidentWorker_RoyalEggSpawn : IncidentWorker
     {
-
         protected override bool CanFireNowSub(IncidentParms parms)
         {
-            Map map = (Map)parms.target;
+            var map = (Map) parms.target;
 
             if (map.mapTemperature.OutdoorTemp <= -10 || map.mapTemperature.OutdoorTemp >= 50)
             {
@@ -24,10 +20,15 @@ namespace AntiniumHiveQueen
             {
                 return false;
             }
-            if (map.mapPawns.FreeHumanlikesOfFaction(Faction.OfPlayer).Where(p => p.kindDef?.race?.defName == "Ant_AntiniumRace").Count() < 3)
+
+            if (map.mapPawns
+                    .FreeHumanlikesOfFaction(Faction.OfPlayer)
+                    .Count(p => p.kindDef?.race?.defName == "Ant_AntiniumRace") <
+                3)
             {
                 return false;
             }
+
             if (HiveQueenUtility.QueenExists())
             {
                 return false;
@@ -39,8 +40,8 @@ namespace AntiniumHiveQueen
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            Map map = (Map)parms.target;
-            Thing t = this.SpawnRoyalEgg(map);
+            var map = (Map) parms.target;
+            var unused = SpawnRoyalEgg(map);
 
 
             return true;
@@ -49,47 +50,32 @@ namespace AntiniumHiveQueen
 
         private Thing SpawnRoyalEgg(Map map)
         {
-
-            IntVec3 loc;
-            if (!TryFindCell(out loc, map))
+            if (!TryFindCell(out var loc, map))
             {
                 return null;
             }
 
-            Thing thing = GenSpawn.Spawn(ThingMaker.MakeThing(AntHQDefOf.Ant_RoyalEgg, null), loc, map, WipeMode.FullRefund);
+            var thing = GenSpawn.Spawn(ThingMaker.MakeThing(AntHQDefOf.Ant_RoyalEgg), loc, map, WipeMode.FullRefund);
 
             //Find.LetterStack.ReceiveLetter("LetterLabelRoyalEgg".Translate(), "LetterRoyalEgg".Translate(), LetterDefOf.PositiveEvent);
 
-            Find.LetterStack.ReceiveLetter("LetterLabelRoyalEgg".Translate(), "LetterRoyalEgg".Translate(), LetterDefOf.PositiveEvent, thing, null, null);
+            Find.LetterStack.ReceiveLetter("LetterLabelRoyalEgg".Translate(), "LetterRoyalEgg".Translate(),
+                LetterDefOf.PositiveEvent, thing);
 
-            
+
             return thing;
-        }
-
-        private struct LocationCandidate
-        {
-            public IntVec3 cell;
-
-            public float score;
-
-            public LocationCandidate(IntVec3 cell, float score)
-            {
-                this.cell = cell;
-                this.score = score;
-            }
         }
 
 
         private static bool TryFindCell(out IntVec3 cell, Map map)
         {
-
-            List<LocationCandidate> locationCandidates = new List<LocationCandidate>();
-            for (int i = 0; i < map.Size.z; i++)
+            var locationCandidates = new List<LocationCandidate>();
+            for (var i = 0; i < map.Size.z; i++)
             {
-                for (int j = 0; j < map.Size.x; j++)
+                for (var j = 0; j < map.Size.x; j++)
                 {
-                    IntVec3 cell2 = new IntVec3(j, 0, i);
-                    float scoreAt = GetScoreAt(cell2, map);
+                    var cell2 = new IntVec3(j, 0, i);
+                    var scoreAt = GetScoreAt(cell2, map);
                     if (scoreAt > 0f)
                     {
                         locationCandidates.Add(new LocationCandidate(cell2, scoreAt));
@@ -97,35 +83,38 @@ namespace AntiniumHiveQueen
                 }
             }
 
-            LocationCandidate locationCandidate;
-
-            if (!locationCandidates.TryRandomElementByWeight((LocationCandidate x) => x.score, out locationCandidate))
+            if (!locationCandidates.TryRandomElementByWeight(x => x.score, out var locationCandidate))
             {
                 cell = IntVec3.Invalid;
                 return false;
             }
-            cell = CellFinder.FindNoWipeSpawnLocNear(locationCandidate.cell, map, ThingDefOf.Hive, Rot4.North, 2, (IntVec3 x) => GetScoreAt(x, map) > 0f && x.GetFirstThing(map, ThingDefOf.Hive) == null && x.GetFirstThing(map, ThingDefOf.TunnelHiveSpawner) == null);
+
+            cell = CellFinder.FindNoWipeSpawnLocNear(locationCandidate.cell, map, ThingDefOf.Hive, Rot4.North, 2,
+                x => GetScoreAt(x, map) > 0f && x.GetFirstThing(map, ThingDefOf.Hive) == null &&
+                     x.GetFirstThing(map, ThingDefOf.TunnelHiveSpawner) == null);
             return true;
         }
 
 
         private static float GetScoreAt(IntVec3 cell, Map map)
         {
-
             if (!cell.Walkable(map))
             {
                 return 0f;
             }
+
             if (cell.Fogged(map))
             {
                 return 0f;
             }
-            float temperature = cell.GetTemperature(map);
+
+            var temperature = cell.GetTemperature(map);
             if (temperature < -20f)
             {
                 return 0f;
             }
-            float score = 1f;
+
+            var score = 1f;
 
             if (!cell.Roofed(map))
             {
@@ -136,41 +125,56 @@ namespace AntiniumHiveQueen
                 score *= .5f;
             }
 
-            float mountainousnessScoreAt = GetMountainousnessScoreAt(cell, map);
+            var mountainousnessScoreAt = GetMountainousnessScoreAt(cell, map);
             if (mountainousnessScoreAt < 0.17f)
             {
                 score *= .3f;
             }
 
             return score;
-
         }
-
 
 
         private static float GetMountainousnessScoreAt(IntVec3 cell, Map map)
         {
-            float num = 0f;
-            int num2 = 0;
-            for (int i = 0; i < 700; i += 10)
+            var num = 0f;
+            var num2 = 0;
+            for (var i = 0; i < 700; i += 10)
             {
-                IntVec3 c = cell + GenRadial.RadialPattern[i];
-                if (c.InBounds(map))
+                var c = cell + GenRadial.RadialPattern[i];
+                if (!c.InBounds(map))
                 {
-                    Building edifice = c.GetEdifice(map);
-                    if (edifice != null && edifice.def.category == ThingCategory.Building && edifice.def.building.isNaturalRock)
-                    {
-                        num += 1f;
-                    }
-                    else if (c.Roofed(map) && c.GetRoof(map).isThickRoof)
-                    {
-                        num += 0.5f;
-                    }
-                    num2++;
+                    continue;
                 }
+
+                var edifice = c.GetEdifice(map);
+                if (edifice != null && edifice.def.category == ThingCategory.Building &&
+                    edifice.def.building.isNaturalRock)
+                {
+                    num += 1f;
+                }
+                else if (c.Roofed(map) && c.GetRoof(map).isThickRoof)
+                {
+                    num += 0.5f;
+                }
+
+                num2++;
             }
-            return num / (float)num2;
+
+            return num / num2;
         }
 
+        private struct LocationCandidate
+        {
+            public readonly IntVec3 cell;
+
+            public readonly float score;
+
+            public LocationCandidate(IntVec3 cell, float score)
+            {
+                this.cell = cell;
+                this.score = score;
+            }
+        }
     }
 }

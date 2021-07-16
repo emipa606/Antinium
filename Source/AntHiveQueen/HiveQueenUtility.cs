@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using RimWorld;
 using Verse;
-
 
 namespace AntiniumHiveQueen
 {
     public static class HiveQueenUtility
     {
-
         // general sensitivity to queen effects
         public static int GetPawnHQScore(Pawn pawn, bool antsOnly = false, bool reqForAnts = true)
         {
-            int factor = -1;
+            var factor = -1;
 
-            if (antsOnly && !(pawn.kindDef.race.defName == "Ant_AntiniumRace"))
+            if (antsOnly && pawn.kindDef.race.defName != "Ant_AntiniumRace")
             {
                 return -1;
             }
@@ -28,7 +24,7 @@ namespace AntiniumHiveQueen
             }
 
             // psychic sensitivity
-            float hyper = pawn.GetStatValue(StatDefOf.PsychicSensitivity, true);
+            var hyper = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
 
 
             if (hyper <= .3)
@@ -61,22 +57,21 @@ namespace AntiniumHiveQueen
         }
 
 
-
-
         public static bool QueenExistsOnMap(Map map)
         {
-            List<Pawn> list = map.mapPawns.PawnsInFaction(Faction.OfPlayer).Where(p => p.RaceProps.Humanlike).ToList();
-            
-            for (int i = 0; i < list.Count(); i++)
+            var list = map.mapPawns.PawnsInFaction(Faction.OfPlayer).Where(p => p.RaceProps.Humanlike).ToList();
+
+            foreach (var pawn in list)
             {
-                Pawn pawn = list[i];
-                CompHQPresence comp = pawn.TryGetComp<CompHQPresence>();
-                if (comp != null)
+                var comp = pawn.TryGetComp<CompHQPresence>();
+                if (comp == null)
                 {
-                    if (comp.Active)
-                    {
-                        return true;
-                    }
+                    continue;
+                }
+
+                if (comp.Active)
+                {
+                    return true;
                 }
             }
 
@@ -85,18 +80,19 @@ namespace AntiniumHiveQueen
 
         public static bool QueenExists()
         {
-            List<Pawn> list = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction.ToList();
+            var list = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction.ToList();
 
-            for (int i = 0; i < list.Count(); i++)
+            foreach (var pawn in list)
             {
-                Pawn pawn = list[i];
-                CompHQPresence comp = pawn.TryGetComp<CompHQPresence>();
-                if (comp != null)
+                var comp = pawn.TryGetComp<CompHQPresence>();
+                if (comp == null)
                 {
-                    if (comp.Active)
-                    {
-                        return true;
-                    }
+                    continue;
+                }
+
+                if (comp.Active)
+                {
+                    return true;
                 }
             }
 
@@ -104,18 +100,18 @@ namespace AntiniumHiveQueen
         }
 
 
-
         //returns max if there are multiple queens
         public static int QueenMaturityLevel(Map map)
         {
-            int level = 0;
+            var level = 0;
 
 
-            List<Pawn> queens = map.mapPawns.PawnsInFaction(Faction.OfPlayer).Where(p => p.TryGetComp<CompHQPresence>() != null).ToList();
+            var queens = map.mapPawns.PawnsInFaction(Faction.OfPlayer)
+                .Where(p => p.TryGetComp<CompHQPresence>() != null).ToList();
 
-            foreach(Pawn queen in queens)
+            foreach (var queen in queens)
             {
-                CompHQPresence pres = queen.TryGetComp<CompHQPresence>();
+                var pres = queen.TryGetComp<CompHQPresence>();
                 if (pres != null && pres.QueenMaturity > level)
                 {
                     level = pres.QueenMaturity;
@@ -130,7 +126,8 @@ namespace AntiniumHiveQueen
         {
             Pawn queen = null;
 
-            List<Pawn> queens = map.mapPawns.PawnsInFaction(Faction.OfPlayer).Where(p => p.TryGetComp<CompHQPresence>() != null).ToList();
+            var queens = map.mapPawns.PawnsInFaction(Faction.OfPlayer)
+                .Where(p => p.TryGetComp<CompHQPresence>() != null).ToList();
 
             if (queens.Count > 0)
             {
@@ -140,9 +137,5 @@ namespace AntiniumHiveQueen
 
             return queen;
         }
-
-
-
-
     }
 }

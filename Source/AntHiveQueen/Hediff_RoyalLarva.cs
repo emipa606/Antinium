@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
-using Verse;
-
+﻿using Verse;
 
 namespace AntiniumHiveQueen
 {
-    public class Hediff_RoyalLarva : HediffWithComps 
+    public class Hediff_RoyalLarva : HediffWithComps
     {
-        public override void Tick ()
+        public override void Tick()
         {
             long ageIncr = 0;
-            switch(CurStageIndex)
+            switch (CurStageIndex)
             {
                 case 0:
                     ageIncr = 6;
@@ -41,9 +35,6 @@ namespace AntiniumHiveQueen
                 //case 3:
                 //    ageIncr = 60;
                 //    break;
-
-                default:
-                    break;
             }
 
 

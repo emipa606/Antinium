@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace AntiniumRaceCode
 {
-
     [DefOf]
     public static class AntDefOf
     {
@@ -29,8 +24,5 @@ namespace AntiniumRaceCode
 
         public static JobDef TakeRxlvnOutOfFermentingBarrel;
         public static JobDef FillRxlvnFermentingBarrel;
-
-
     }
-    
 }

@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using System.Diagnostics;
 
 namespace AntiniumRaceCode
 {
-
     [StaticConstructorOnStartup]
     public class Building_RxlvnFermentingBarrel : Building
     {
-        private int mashCount;
-
-        private float progressInt;
-
-        private Material barFilledCachedMat;
-
         public const int MaxCapacity = 25;
 
         private const int BaseFermentationDuration = 360000;
@@ -31,22 +22,26 @@ namespace AntiniumRaceCode
 
         private static readonly Color BarFermentedColor = new Color(0.9f, 0.85f, 0.2f);
 
-        private static readonly Material BarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f), false);
+        private static readonly Material BarUnfilledMat =
+            SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f));
+
+        private Material barFilledCachedMat;
+        private int mashCount;
+
+        private float progressInt;
 
         public float Progress
         {
-            get
-            {
-                return this.progressInt;
-            }
+            get => progressInt;
             set
             {
-                if (value == this.progressInt)
+                if (value == progressInt)
                 {
                     return;
                 }
-                this.progressInt = value;
-                this.barFilledCachedMat = null;
+
+                progressInt = value;
+                barFilledCachedMat = null;
             }
         }
 
@@ -54,11 +49,14 @@ namespace AntiniumRaceCode
         {
             get
             {
-                if (this.barFilledCachedMat == null)
+                if (barFilledCachedMat == null)
                 {
-                    this.barFilledCachedMat = SolidColorMaterials.SimpleSolidColorMaterial(Color.Lerp(Building_RxlvnFermentingBarrel.BarZeroProgressColor, Building_RxlvnFermentingBarrel.BarFermentedColor, this.Progress), false);
+                    barFilledCachedMat =
+                        SolidColorMaterials.SimpleSolidColorMaterial(Color.Lerp(BarZeroProgressColor, BarFermentedColor,
+                            Progress));
                 }
-                return this.barFilledCachedMat;
+
+                return barFilledCachedMat;
             }
         }
 
@@ -66,218 +64,198 @@ namespace AntiniumRaceCode
         {
             get
             {
-                if (this.Fermented)
+                if (Fermented)
                 {
                     return 0;
                 }
-                return 25 - this.mashCount;
+
+                return 25 - mashCount;
             }
         }
 
-        private bool Empty
-        {
-            get
-            {
-                return this.mashCount <= 0;
-            }
-        }
+        private bool Empty => mashCount <= 0;
 
-        public bool Fermented
-        {
-            get
-            {
-                return !this.Empty && this.Progress >= 1f;
-            }
-        }
+        public bool Fermented => !Empty && Progress >= 1f;
 
         private float CurrentTempProgressSpeedFactor
         {
             get
             {
-                CompProperties_TemperatureRuinable compProperties = this.def.GetCompProperties<CompProperties_TemperatureRuinable>();
-                float ambientTemperature = base.AmbientTemperature;
+                var compProperties = def.GetCompProperties<CompProperties_TemperatureRuinable>();
+                var ambientTemperature = AmbientTemperature;
                 if (ambientTemperature < compProperties.minSafeTemperature)
                 {
                     return 0.1f;
                 }
+
                 if (ambientTemperature < 7f)
                 {
                     return GenMath.LerpDouble(compProperties.minSafeTemperature, 7f, 0.1f, 1f, ambientTemperature);
                 }
+
                 return 1f;
             }
         }
 
-        private float ProgressPerTickAtCurrentTemp
-        {
-            get
-            {
-                return 2.77777781E-06f * this.CurrentTempProgressSpeedFactor;
-            }
-        }
+        private float ProgressPerTickAtCurrentTemp => 2.77777781E-06f * CurrentTempProgressSpeedFactor;
 
-        private int EstimatedTicksLeft
-        {
-            get
-            {
-                return Mathf.Max(Mathf.RoundToInt((1f - this.Progress) / this.ProgressPerTickAtCurrentTemp), 0);
-            }
-        }
+        private int EstimatedTicksLeft =>
+            Mathf.Max(Mathf.RoundToInt((1f - Progress) / ProgressPerTickAtCurrentTemp), 0);
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<int>(ref this.mashCount, "mashCount", 0, false);
-            Scribe_Values.Look<float>(ref this.progressInt, "progress", 0f, false);
+            Scribe_Values.Look(ref mashCount, "mashCount");
+            Scribe_Values.Look(ref progressInt, "progress");
         }
 
         public override void TickRare()
         {
             base.TickRare();
-            if (!this.Empty)
+            if (!Empty)
             {
-                this.Progress = Mathf.Min(this.Progress + 250f * this.ProgressPerTickAtCurrentTemp, 1f);
+                Progress = Mathf.Min(Progress + (250f * ProgressPerTickAtCurrentTemp), 1f);
             }
         }
 
         public void AddMash(int count)
         {
-            base.GetComp<CompTemperatureRuinable>().Reset();
-            if (this.Fermented)
+            GetComp<CompTemperatureRuinable>().Reset();
+            if (Fermented)
             {
-                Log.Warning("Tried to add mash to a barrel full of rxlvn. Colonists should take the rxlvn first.", false);
+                Log.Warning("Tried to add mash to a barrel full of rxlvn. Colonists should take the rxlvn first.");
                 return;
             }
-            int num = Mathf.Min(count, 25 - this.mashCount);
+
+            var num = Mathf.Min(count, 25 - mashCount);
             if (num <= 0)
             {
                 return;
             }
-            this.Progress = GenMath.WeightedAverage(0f, (float)num, this.Progress, (float)this.mashCount);
-            this.mashCount += num;
+
+            Progress = GenMath.WeightedAverage(0f, num, Progress, mashCount);
+            mashCount += num;
         }
 
         protected override void ReceiveCompSignal(string signal)
         {
             if (signal == "RuinedByTemperature")
             {
-                this.Reset();
+                Reset();
             }
         }
 
         private void Reset()
         {
-            this.mashCount = 0;
-            this.Progress = 0f;
+            mashCount = 0;
+            Progress = 0f;
         }
 
         public void AddMash(Thing mash)
         {
-            int num = Mathf.Min(mash.stackCount, 25 - this.mashCount);
-            if (num > 0)
+            var num = Mathf.Min(mash.stackCount, 25 - mashCount);
+            if (num <= 0)
             {
-                this.AddMash(num);
-                mash.SplitOff(num).Destroy(DestroyMode.Vanish);
+                return;
             }
+
+            AddMash(num);
+            mash.SplitOff(num).Destroy();
         }
 
         public override string GetInspectString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             stringBuilder.Append(base.GetInspectString());
             if (stringBuilder.Length != 0)
             {
                 stringBuilder.AppendLine();
             }
-            CompTemperatureRuinable comp = base.GetComp<CompTemperatureRuinable>();
-            if (!this.Empty && !comp.Ruined)
+
+            var comp = GetComp<CompTemperatureRuinable>();
+            if (!Empty && !comp.Ruined)
             {
-                if (this.Fermented)
-                {
-                    stringBuilder.AppendLine("ContainsRxlvn".Translate(this.mashCount, 25));
-                }
-                else
-                {
-                    stringBuilder.AppendLine("ContainsMash".Translate(this.mashCount, 25));
-                }
+                stringBuilder.AppendLine(Fermented
+                    ? "ContainsRxlvn".Translate(mashCount, 25)
+                    : "ContainsMash".Translate(mashCount, 25));
             }
-            if (!this.Empty)
+
+            if (!Empty)
             {
-                if (this.Fermented)
+                if (Fermented)
                 {
                     stringBuilder.AppendLine("Fermented".Translate());
                 }
                 else
                 {
-                    stringBuilder.AppendLine("FermentationProgress".Translate(this.Progress.ToStringPercent(), this.EstimatedTicksLeft.ToStringTicksToPeriod()));
-                    if (this.CurrentTempProgressSpeedFactor != 1f)
+                    stringBuilder.AppendLine("FermentationProgress".Translate(Progress.ToStringPercent(),
+                        EstimatedTicksLeft.ToStringTicksToPeriod()));
+                    if (CurrentTempProgressSpeedFactor != 1f)
                     {
-                        stringBuilder.AppendLine("FermentationBarrelOutOfIdealTemperature".Translate(this.CurrentTempProgressSpeedFactor.ToStringPercent()));
+                        stringBuilder.AppendLine(
+                            "FermentationBarrelOutOfIdealTemperature".Translate(CurrentTempProgressSpeedFactor
+                                .ToStringPercent()));
                     }
                 }
             }
-            stringBuilder.AppendLine("Temperature".Translate() + ": " + base.AmbientTemperature.ToStringTemperature("F0"));
-            stringBuilder.AppendLine(string.Concat(new string[]
-            {
-                "IdealFermentingTemperature".Translate(),
-                ": ",
-                7f.ToStringTemperature("F0"),
-                " ~ ",
-                comp.Props.maxSafeTemperature.ToStringTemperature("F0")
-            }));
+
+            stringBuilder.AppendLine("Temperature".Translate() + ": " + AmbientTemperature.ToStringTemperature("F0"));
+            stringBuilder.AppendLine(string.Concat("IdealFermentingTemperature".Translate(), ": ",
+                7f.ToStringTemperature("F0"), " ~ ", comp.Props.maxSafeTemperature.ToStringTemperature("F0")));
             return stringBuilder.ToString().TrimEndNewlines();
         }
 
         public Thing TakeOutRxlvn()
         {
-            if (!this.Fermented)
+            if (!Fermented)
             {
-                Log.Warning("Tried to get rxlvn but it's not yet fermented.", false);
+                Log.Warning("Tried to get rxlvn but it's not yet fermented.");
                 return null;
             }
-            Thing thing = ThingMaker.MakeThing(AntDefOf.Ant_Rxlvn, null);
-            thing.stackCount = this.mashCount;
-            this.Reset();
+
+            var thing = ThingMaker.MakeThing(AntDefOf.Ant_Rxlvn);
+            thing.stackCount = mashCount;
+            Reset();
             return thing;
         }
 
         public override void Draw()
         {
             base.Draw();
-            if (!this.Empty)
+            if (Empty)
             {
-                Vector3 drawPos = this.DrawPos;
-                drawPos.y += 0.046875f;
-                drawPos.z += 0.25f;
-                GenDraw.DrawFillableBar(new GenDraw.FillableBarRequest
-                {
-                    center = drawPos,
-                    size = Building_RxlvnFermentingBarrel.BarSize,
-                    fillPercent = (float)this.mashCount / 25f,
-                    filledMat = this.BarFilledMat,
-                    unfilledMat = Building_RxlvnFermentingBarrel.BarUnfilledMat,
-                    margin = 0.1f,
-                    rotation = Rot4.North
-                });
+                return;
             }
+
+            var drawPos = DrawPos;
+            drawPos.y += 0.046875f;
+            drawPos.z += 0.25f;
+            GenDraw.DrawFillableBar(new GenDraw.FillableBarRequest
+            {
+                center = drawPos,
+                size = BarSize,
+                fillPercent = mashCount / 25f,
+                filledMat = BarFilledMat,
+                unfilledMat = BarUnfilledMat,
+                margin = 0.1f,
+                rotation = Rot4.North
+            });
         }
 
         [DebuggerHidden]
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            foreach (Gizmo g in base.GetGizmos())
+            foreach (var g in base.GetGizmos())
             {
                 yield return g;
             }
-            if (Prefs.DevMode && !this.Empty)
+
+            if (Prefs.DevMode && !Empty)
             {
                 yield return new Command_Action
                 {
                     defaultLabel = "Debug: Set progress to 1",
-                    action = delegate
-                    {
-                        this.Progress = 1f;
-                    }
+                    action = delegate { Progress = 1f; }
                 };
             }
         }

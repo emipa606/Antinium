@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using RimWorld;
 using Verse;
 using Verse.AI;
-using RimWorld;
-using System.Diagnostics;
 
 namespace AntiniumRaceCode
 {
@@ -19,28 +16,17 @@ namespace AntiniumRaceCode
 
         private const int Duration = 200;
 
-        protected Building_RxlvnFermentingBarrel Barrel
-        {
-            get
-            {
-                return (Building_RxlvnFermentingBarrel)this.job.GetTarget(TargetIndex.A).Thing;
-            }
-        }
+        protected Building_RxlvnFermentingBarrel Barrel =>
+            (Building_RxlvnFermentingBarrel) job.GetTarget(TargetIndex.A).Thing;
 
-        protected Thing Beer
-        {
-            get
-            {
-                return this.job.GetTarget(TargetIndex.B).Thing;
-            }
-        }
+        protected Thing Beer => job.GetTarget(TargetIndex.B).Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            Pawn pawn = this.pawn;
-            LocalTargetInfo target = this.Barrel;
-            Job job = this.job;
-            return pawn.Reserve(target, job, 1, -1, null, errorOnFailed);
+            var pawn1 = pawn;
+            LocalTargetInfo target = Barrel;
+            var job1 = job;
+            return pawn1.Reserve(target, job1, 1, -1, null, errorOnFailed);
         }
 
         [DebuggerHidden]
@@ -49,33 +35,35 @@ namespace AntiniumRaceCode
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnBurningImmobile(TargetIndex.A);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-            yield return Toils_General.Wait(200, TargetIndex.None).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).FailOn(() => !this.Barrel.Fermented).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
+            yield return Toils_General.Wait(200).FailOnDestroyedNullOrForbidden(TargetIndex.A)
+                .FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).FailOn(() => !Barrel.Fermented)
+                .WithProgressBarToilDelay(TargetIndex.A);
             yield return new Toil
             {
                 initAction = delegate
                 {
-                    Thing thing = this.Barrel.TakeOutRxlvn();
-                    GenPlace.TryPlaceThing(thing, this.pawn.Position, this.Map, ThingPlaceMode.Near, null, null);
-                    StoragePriority currentPriority = StoreUtility.CurrentStoragePriorityOf(thing);
-                    IntVec3 c;
-                    if (StoreUtility.TryFindBestBetterStoreCellFor(thing, this.pawn, this.Map, currentPriority, this.pawn.Faction, out c, true))
+                    var thing = Barrel.TakeOutRxlvn();
+                    GenPlace.TryPlaceThing(thing, pawn.Position, Map, ThingPlaceMode.Near);
+                    var currentPriority = StoreUtility.CurrentStoragePriorityOf(thing);
+                    if (StoreUtility.TryFindBestBetterStoreCellFor(thing, pawn, Map, currentPriority, pawn.Faction,
+                        out var c))
                     {
-                        this.job.SetTarget(TargetIndex.C, c);
-                        this.job.SetTarget(TargetIndex.B, thing);
-                        this.job.count = thing.stackCount;
+                        job.SetTarget(TargetIndex.C, c);
+                        job.SetTarget(TargetIndex.B, thing);
+                        job.count = thing.stackCount;
                     }
                     else
                     {
-                        this.EndJobWith(JobCondition.Incompletable);
+                        EndJobWith(JobCondition.Incompletable);
                     }
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
-            yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-            yield return Toils_Reserve.Reserve(TargetIndex.C, 1, -1, null);
+            yield return Toils_Reserve.Reserve(TargetIndex.B);
+            yield return Toils_Reserve.Reserve(TargetIndex.C);
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);
-            Toil carryToCell = Toils_Haul.CarryHauledThingToCell(TargetIndex.C);
+            yield return Toils_Haul.StartCarryThing(TargetIndex.B);
+            var carryToCell = Toils_Haul.CarryHauledThingToCell(TargetIndex.C);
             yield return carryToCell;
             yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, carryToCell, true);
         }
