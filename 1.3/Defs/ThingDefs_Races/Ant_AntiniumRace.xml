@@ -181,9 +181,20 @@
           <skull />
         </li>
       </graphicPaths>
-      <hairSettings>
-        <hasHair>false</hasHair>
-      </hairSettings>
+      <styleSettings>
+        <li>
+          <key>HairDef</key>
+          <value>
+            <hasStyle>false</hasStyle>
+          </value>
+        </li>
+        <li>
+          <key>BeardDef</key>
+          <value>
+            <hasStyle>false</hasStyle>
+          </value>
+        </li>
+      </styleSettings>
       <thoughtSettings>
         <replacerList>
           <!--Food thoughts-->
