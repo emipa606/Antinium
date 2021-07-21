@@ -1,5 +1,8 @@
 # Changelog for Antinium
 
+1.0.5.0 - Added confiurable at game-start option
+
+
 1.0.4.0 - Republish since the HAR framework changed how hair and beards are coded
 
 
