@@ -32,7 +32,7 @@ Includes a player faction, starting scenario and two AI factions.
 
 Antinium are a hive species that resembles giant ants. This is a difficult, low-tech start. 
 	
-Antinium are good at melee, and have a lot of natural armor. They&apos;re also good at mining, construction, and butchery. They&apos;re bad at ranged combat, farming, animal taming, and cooking - Antinium can safely eat raw or rotten food, so their cooks don&apos;t always know what isn&apos;t safe for other species to eat (lots of food poisoning if an Antinium cook is feeding a non-Antinium colony). 
+Antinium are good at melee, and have a lot of natural armor. They're also good at mining, construction, and butchery. They're bad at ranged combat, farming, animal taming, and cooking - Antinium can safely eat raw or rotten food, so their cooks don't always know what isn't safe for other species to eat (lots of food poisoning if an Antinium cook is feeding a non-Antinium colony). 
 	
 Antinium like eating insect meat and are less bothered by cannibalism or mistreating prisoners, but more bothered if someone close to them dies. They really hate being wet. Antinium have many other preferences that may seem strange to humans; it may be difficult to integrate outsiders into an established hive.
 
@@ -42,7 +42,7 @@ Antinium like eating insect meat and are less bothered by cannibalism or mistrea
 
 Any faction can get a hive queen. Minimum colony population is 6, with at least 3 colonists being Antinium.
 
-She will need a LOT of food and resources, especially as a larva. She&apos;ll eat as much as 2-3 adults in the first quadrum (this will calm down as she matures). If you can&apos;t feed her, deconstruct the egg and wait for a new spawn.
+She will need a LOT of food and resources, especially as a larva. She'll eat as much as 2-3 adults in the first quadrum (this will calm down as she matures). If you can't feed her, deconstruct the egg and wait for a new spawn.
 
 Antinium and pawns with high psychic sensitivity will be the most in tune with the Queen. Putting on a foil hat will reduce or remove most effects, both good and bad. As the Queen grows in strength, the effects will get bigger and more pawns will be affected.
 
@@ -66,6 +66,7 @@ Everyone in the RimWorld modding discord and the Human Alien Races discord for l
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 

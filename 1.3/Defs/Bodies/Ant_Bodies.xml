@@ -199,6 +199,7 @@
                     <li>FullHead</li>
                     <li>Eyes</li>
                   </groups>
+                  <woundAnchorTag>LeftEye</woundAnchorTag>
                 </li>
                 <li>
                   <def>Eye</def>
@@ -208,6 +209,7 @@
                     <li>FullHead</li>
                     <li>Eyes</li>
                   </groups>
+                  <woundAnchorTag>RightEye</woundAnchorTag>
                 </li>
                 <li>
                   <def>Ear</def>
@@ -281,6 +283,7 @@
           <groups>
             <li>Shoulders</li>
           </groups>
+          <woundAnchorTag>LeftShoulder</woundAnchorTag>
           <parts>
             <li>
               <def>Clavicle</def>
@@ -385,6 +388,7 @@
           <groups>
             <li>Shoulders</li>
           </groups>
+          <woundAnchorTag>RightShoulder</woundAnchorTag>
           <parts>
             <li>
               <def>Clavicle</def>
@@ -708,6 +712,7 @@
           <groups>
             <li>Legs</li>
           </groups>
+          <woundAnchorTag>LeftLeg</woundAnchorTag>
           <parts>
             <li>
               <def>Femur</def>
@@ -787,6 +792,7 @@
           <groups>
             <li>Legs</li>
           </groups>
+          <woundAnchorTag>RightLeg</woundAnchorTag>
           <parts>
             <li>
               <def>Femur</def>
