@@ -1,6 +1,6 @@
 # Antinium
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of Zylles mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1892455303
@@ -9,19 +9,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1892455303
 - Should not spawn as permanent enemy towards Empire
 - Added support for https://steamcommunity.com/sharedfiles/filedetails/?id=2451324814][SYR] Trait Value
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/Antinium]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 # Overview
@@ -56,7 +47,7 @@ rebelrot96 and Mister Mansion for the Gnoll Race 1.0 mod, which I used as a refe
 Everyone in the RimWorld modding discord and the Human Alien Races discord for lots of help, especially dninemfive and Pelador
 
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -66,8 +57,6 @@ Everyone in the RimWorld modding discord and the Human Alien Races discord for l
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
-
-
 
 
 
