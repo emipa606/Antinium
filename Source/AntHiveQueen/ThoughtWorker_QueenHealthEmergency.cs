@@ -1,46 +1,45 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace AntiniumHiveQueen
+namespace AntiniumHiveQueen;
+
+internal class ThoughtWorker_QueenHealthEmergency : ThoughtWorker
 {
-    internal class ThoughtWorker_QueenHealthEmergency : ThoughtWorker
+    protected override ThoughtState CurrentStateInternal(Pawn p)
     {
-        protected override ThoughtState CurrentStateInternal(Pawn p)
+        //if (!(p.kindDef.race.defName == "Ant_AntiniumRace") && p.GetStatValue(StatDefOf.PsychicSensitivity, true) < 1.3)
+        //{
+        //    return false;
+        //}
+
+
+        var unused = DefDatabase<PawnRelationDef>.GetNamed("Ant_QueenRelation");
+
+        var directRelations = p.relations.DirectRelations;
+
+        foreach (var directPawnRelation in directRelations)
         {
-            //if (!(p.kindDef.race.defName == "Ant_AntiniumRace") && p.GetStatValue(StatDefOf.PsychicSensitivity, true) < 1.3)
-            //{
-            //    return false;
-            //}
+            var queen = directPawnRelation.otherPawn;
 
-
-            var unused = DefDatabase<PawnRelationDef>.GetNamed("Ant_QueenRelation");
-
-            var directRelations = p.relations.DirectRelations;
-
-            foreach (var directPawnRelation in directRelations)
+            if (queen.Dead || !queen.IsColonistPlayerControlled)
             {
-                var queen = directPawnRelation.otherPawn;
+                continue;
+            }
+            //if (directRelations[i].def == relation)
+            //{
 
-                if (queen.Dead || !queen.IsColonistPlayerControlled)
+            foreach (var diff in queen.health.hediffSet.hediffs)
+            {
+                if (diff.CurStage is { lifeThreatening: true } && !diff.FullyImmune())
                 {
-                    continue;
+                    return true;
                 }
-                //if (directRelations[i].def == relation)
-                //{
-
-                foreach (var diff in queen.health.hediffSet.hediffs)
-                {
-                    if (diff.CurStage is {lifeThreatening: true} && !diff.FullyImmune())
-                    {
-                        return true;
-                    }
-                }
-
-
-                //}
             }
 
-            return false;
+
+            //}
         }
+
+        return false;
     }
 }

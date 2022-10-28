@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>Ant_Brewing</defName>
+    <label>rxlvn brewing</label>
+    <description>Ferment hops and insect meat into rxlvn, a very strong alcoholic beverage.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <researchViewX>0</researchViewX>
+    <researchViewY>1.5</researchViewY>
+    <prerequisites>
+      <li>Brewing</li>
+    </prerequisites>
+  </ResearchProjectDef>
+</Defs>

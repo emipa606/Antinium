@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <TraitDef>
+    <defName>Ant_BirdLover</defName>
+    <commonality>1.5</commonality>
+    <degreeDatas>
+      <li>
+        <label>bird lover</label>
+        <description>{PAWN_nameDef} loves birds.</description>
+      </li>
+    </degreeDatas>
+    <conflictingTraits>
+      <li>Cannibal</li>
+    </conflictingTraits>
+  </TraitDef>
+  <!--thoughts-->
+</Defs>

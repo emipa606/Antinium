@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ant people names-->
+  <RulePackDef>
+    <defName>NamerPersonAntinium</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name(p=2)-&gt;[ant_name]</li>
+        <li>name(p=1)-&gt;[ant_name] [ant_name]</li>
+        <li>name(p=1)-&gt;[ant_word] '[Chess]' [ant_word]</li>
+        <li>ant_name(p=2)-&gt;[Chess]</li>
+        <li>ant_name(p=7)-&gt;[ant_word]</li>
+        <li>ant_word(p=3)-&gt;[ant_syl]</li>
+        <li>ant_word(p=3)-&gt;[ant_syl][ant_syl]</li>
+        <li>ant_word(p=2)-&gt;[ant_syl][ant_syl][ant_syl]</li>
+        <li>ant_word-&gt;[ant_syl][ant_syl][ant_syl][ant_syl]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>Chess</keyword>
+          <path>Antinium_Names/Chess</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>ant_syl</keyword>
+          <path>Antinium_Names/Antinium_Syllables</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+  <!-- ant faction nmes-->
+  <RulePackDef>
+    <defName>Ant_NamerFactionAntinium</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name-&gt;The [AdjectiveAny] [ant_group]</li>
+        <li>r_name-&gt;The [ant_group] of [AdjectiveAny] [TerrainFeature]</li>
+        <li>r_name-&gt;The [ant_group] of [PlaceOutlander]</li>
+        <li>r_name-&gt;The [AdjectiveAny] [ant_group] of [PlaceOutlander]</li>
+        <li>r_name-&gt;The [Colors_Badass] [ant_group] of [PlaceOutlander]</li>
+        <li>r_name-&gt;The [Color] [TerrainFeature] [ant_group]</li>
+        <li>r_name-&gt;The [PlaceOutlander] [ant_group] of [WordTribal]</li>
+        <li>ant_group-&gt;Hive</li>
+        <li>ant_group-&gt;Antinium</li>
+        <li>PlaceOutlander-&gt;[SylE][place_end]</li>
+        <li>PlaceOutlander-&gt;[SylE][place_end]</li>
+        <li>PlaceOutlander-&gt;[SylE][place_end]</li>
+        <li>PlaceOutlander-&gt;[SylE][SylE][place_end]</li>
+        <li>PlaceOutlander-&gt;[SylE][SylE][place_end]</li>
+        <li>PlaceOutlander-&gt;[SylE][SylE][SylE][place_end]</li>
+        <li>WordTribal(p=3)-&gt;[tribal_word_file]</li>
+        <li>WordTribal(p=3)-&gt;[SylG][SylG]</li>
+        <li>WordTribal(p=2)-&gt;[SylG][SylG][SylG]</li>
+        <li>WordTribal-&gt;[SylG][SylG][SylG][SylG]</li>
+        <li>political_union_tribal-&gt;Words/Nouns/PoliticalUnions_Tribal</li>
+      </rulesStrings>
+      <rulesFiles>
+        <li>place_end-&gt;WordParts/PlaceEndings</li>
+        <li>tribal_word_file-&gt;Words/Foreign/Tribal</li>
+      </rulesFiles>
+    </rulePack>
+  </RulePackDef>
+</Defs>

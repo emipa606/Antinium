@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- This is a hidden faction that should never interact with the player. -->
+  <!-- It exists to make Queen spawns with the right backstory. -->
+  <FactionDef ParentName="FactionBase">
+    <defName>Ant_QueenFaction</defName>
+    <label>Antinium</label>
+    <pawnSingular>antinium queen</pawnSingular>
+    <pawnsPlural>antinium queens</pawnsPlural>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <humanlikeFaction>false</humanlikeFaction>
+    <fixedName>AntiniumQueen</fixedName>
+    <techLevel>Neolithic</techLevel>
+    <backstoryCategories>
+      <li>Ant_HiveQueenBackstories</li>
+    </backstoryCategories>
+    <hidden>true</hidden>
+    <allowedCultures>
+      <li>Antiniumian</li>
+    </allowedCultures>
+    <apparelStuffFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+    </apparelStuffFilter>
+  </FactionDef>
+</Defs>

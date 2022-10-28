@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MeditationFocusDef[defName="Natural"]/requiredBackstoriesAny</xpath>
+    <value>
+      <li>
+        <categoryName>Ant_BasicBackstory</categoryName>
+        <slot>Childhood</slot>
+      </li>
+      <li>
+        <categoryName>Ant_HiveQueenBackstories</categoryName>
+        <slot>Childhood</slot>
+      </li>
+    </value>
+  </Operation>
+</Patch>

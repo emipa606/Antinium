@@ -1,12 +1,11 @@
 ﻿using Verse;
 
-namespace AntiniumHiveQueen
+namespace AntiniumHiveQueen;
+
+public class CompProperties_HQPresence : CompProperties
 {
-    public class CompProperties_HQPresence : CompProperties
+    public CompProperties_HQPresence()
     {
-        public CompProperties_HQPresence()
-        {
-            compClass = typeof(CompHQPresence);
-        }
+        compClass = typeof(CompHQPresence);
     }
 }

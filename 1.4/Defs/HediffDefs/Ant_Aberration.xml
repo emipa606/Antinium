@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef ParentName="DiseaseBase">
+    <defName>Ant_Aberration</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>aberration</label>
+    <description>Aberrations may be dangerous to those around them. Do what you need to do.</description>
+    <stages>
+      <li>
+        <opinionOfOthersFactor>0</opinionOfOthersFactor>
+        <capMods>
+          <!-- No social -->
+          <li>
+            <capacity>Talking</capacity>
+            <setMax>0</setMax>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <setMax>0</setMax>
+          </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.8</setMax>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Berserk</mentalState>
+            <mtbDays>.5</mtbDays>
+          </li>
+          <li>
+            <mentalState>MurderousRage</mentalState>
+            <mtbDays>1.5</mtbDays>
+          </li>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>1.1</mtbDays>
+          </li>
+          <li>
+            <mentalState>TargetedTantrum</mentalState>
+            <mtbDays>2</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="LeatherBase">
+    <defName>Ant_AntiniumChitin</defName>
+    <label>antinium chitin</label>
+    <description>Antinium chitin. Protects reasonably well, but most people are uncomfortable wearing it.</description>
+    <graphicData>
+      <color>(87,35,16)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>4.5</MarketValue>
+      <StuffPower_Armor_Sharp>1.02</StuffPower_Armor_Sharp>
+      <StuffPower_Insulation_Cold>21</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(87,35,16</color>
+      <commonality>0.0025</commonality>
+    </stuffProps>
+  </ThingDef>
+</Defs>

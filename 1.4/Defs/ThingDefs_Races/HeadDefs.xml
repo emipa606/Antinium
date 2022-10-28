@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>Antinium_Average_Normal</defName>
+    <graphicPath>Antinium/Head/Average_Normal</graphicPath>
+    <gender>None</gender>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>Antinium_Average_Wide</defName>
+    <graphicPath>Antinium/Head/Average_Wide</graphicPath>
+    <gender>None</gender>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>Antinium_Narrow_Normal</defName>
+    <graphicPath>Antinium/Head/Narrow_Normal</graphicPath>
+    <gender>None</gender>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="NarrowBase">
+    <defName>Antinium_Narrow_Wide</defName>
+    <graphicPath>Antinium/Head/Narrow_Wide</graphicPath>
+    <gender>None</gender>
+  </HeadTypeDef>
+</Defs>
