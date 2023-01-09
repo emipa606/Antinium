@@ -61,3 +61,4 @@ Everyone in the RimWorld modding discord and the Human Alien Races discord for l
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2209261976]Last updated 2023-01-09
