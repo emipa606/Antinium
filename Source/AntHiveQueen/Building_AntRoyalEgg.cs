@@ -105,12 +105,13 @@ public class Building_AntRoyalEgg : Building
             var hatcherPawn = DefDatabase<PawnKindDef>.GetNamed("Ant_AntiniumQueen");
             var queenFactionDef = DefDatabase<FactionDef>.GetNamed("Ant_QueenFaction");
             var queenFaction =
-                (from fac in Find.FactionManager.AllFactions where fac.def == queenFactionDef select fac).First();
+                (from fac in Find.FactionManager.AllFactions where fac.def == queenFactionDef select fac)
+                .FirstOrDefault();
 
             //PawnGenerationRequest request = new PawnGenerationRequest(hatcherPawn, queenFaction, PawnGenerationContext.NonPlayer, -1, false, true, false, false, false, false, 1f, false, true, true, false, false, false, false, null, null, null, null, null, Gender.Female, null, null);
 
             var request = new PawnGenerationRequest(hatcherPawn, queenFaction, PawnGenerationContext.NonPlayer, -1,
-                false, false, false, false, false, 1f, false, true, allowFood: true, allowAddictions: true,
+                false, false, false, false, allowFood: true, allowAddictions: true,
                 inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false,
                 worldPawnFactionDoesntMatter: false,
                 biocodeWeaponChance: 0f, biocodeApparelChance: 0f, extraPawnForExtraRelationChance: null,

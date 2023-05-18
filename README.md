@@ -9,6 +9,8 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1892455303
 - Should not spawn as permanent enemy towards Empire
 - Added support for https://steamcommunity.com/sharedfiles/filedetails/?id=2451324814][SYR] Trait Value
 
+**Was never really finished it seems. May cause issues in your game so be careful with how you choose to use it**
+
 ![Image](https://i.imgur.com/pufA0kM.png)
 
 	
@@ -59,6 +61,4 @@ Everyone in the RimWorld modding discord and the Human Alien Races discord for l
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-
-
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2209261976]Last updated 2023-01-09
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2209261976]Last updated 2023-05-18
